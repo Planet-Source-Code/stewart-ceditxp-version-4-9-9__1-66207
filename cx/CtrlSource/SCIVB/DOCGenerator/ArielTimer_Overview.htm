@@ -1,0 +1,136 @@
+<HTML>
+<HEAD>
+<style>
+.ItemSelected {color:black; background-color:#b0b0b0;cursor:'default'}
+.ItemUnSelected {color:white; background-color:#c0c0c0;cursor:'default'}
+
+</style>
+<STYLE>
+Body {
+BGCOLOR: #FFFFFF;
+Fore-Color: #000000;
+Font-Family: Verdana;
+Font-Size: 9pt;
+}
+
+Table {
+Font-Family: Verdana;
+Font-Size: 8pt;
+}
+
+A:LINK {
+Color: #4A58BE;
+text-Decoration: none;
+font-weight: Bold;
+}
+
+A:Active {
+Color: #4A58BE;
+text-Decoration: none;
+font-weight: Bold;
+}
+
+A:Visted {
+Color: #4A58BE;
+text-Decoration: none;
+font-weight: Bold;
+}
+
+A:HOVER {
+Color: #7E0000;
+text-Decoration: none;
+font-weight: Bold;
+}</STYLE>
+<TITLE>ArielTimer Module</TITLE>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" rightmargin="0">
+<table border="0" cellpadding="6" cellspacing="0" bgcolor="#D9DAFF" width="100%">
+<TR>
+<TD>
+<b>ArielTimer Object</b>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="10" cellspacing="0">
+<TR><TD>
+<P>
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:Consts">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#808080,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:Methods">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#808080,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:Properties">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Item1" VALUE="Enabled;ArielTimer_Enabled_Property.htm">
+<PARAM NAME="Item2" VALUE="Interval;ArielTimer_Interval_Property.htm">
+<PARAM NAME="Item3" VALUE="Name;ArielTimer_Name_Property.htm">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#0000ff,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:Events">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Item1" VALUE="OnTimer;ArielTimer_OnTimer_Event.htm">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#0000ff,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:Enums">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#808080,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:UDT's">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#808080,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;
+<p>Module     : ArielTimer 
+ Description: Simple Timer delay class with events
+ Version    : V1.00 Sep 2000
+ Release    : VB5/VB6
+ Copyright  : © T De Lange, Ariel Systems, 2000
+ e-mail     : tomdl@attglobal.net
+ ----------------------------------------------------------------------------------
+ V1.00    Sep 00 Original version, based on code published by Riaan Aspeling
+ http://www.planet-source-code.com
+ ----------------------------------------------------------------------------------
+ Implement the following in your project form:
+ Declarations:
+ Private WithEvents ArTimer As ArielTimer  'Must be private to raise events
+ Form_Load():
+ Set TimerObj = New ArielTimer
+ TimerObj.Interval = <any long, in ms>
+ To start the timer, issue the following:
+ TimerObj.Enabled=True
+ To stop the timer, issue the following:
+ TimerObj.Enabled=False
+ ----------------------------------------------------------------------------------
+</p>
+<p></p>
+<p></p>
+<P></P>
+<P></P>
+<p></P></td></tr></table>
+</BODY>
+</HTML>
+

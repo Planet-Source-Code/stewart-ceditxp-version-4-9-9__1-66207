@@ -1,0 +1,19 @@
+<script language="vbscript">
+  sub SetItUp()
+    sciMain.DirectSCI.SetLexer CLng(3)
+    for i = 0 to 7
+      l = i
+      sciMain.DirectSCI.SetKeywords CLng(l), "if then else"
+    next
+    for i = 0 to 127
+    l = i
+    sciMain.DirectSCI.StyleSetFore CLng(l), VBGreen
+    sciMain.DirectSCI.StyleSetBack CLng(l), VBBlack
+    next
+    sciMain.DirectSCI.StyleSetFore CLng(5), VBBlue
+  end sub
+</script>
+<HTML><BODY><OBJECT classid="clsid:E8A0C518-1BF6-43DD-B0C0-89982BFDC029" ID="sciMain" width="500" height="500">
+</OBJECT>
+<OBJECT classid="clsid:918AA094-4C6D-400D-B96B-5C031316D2F7" ID="hlMain"></OBJECT></BODY></HTML>
+<input type="button" value="Set it up" OnClick="SetItUp">

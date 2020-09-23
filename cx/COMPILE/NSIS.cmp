@@ -1,0 +1,9 @@
+[Compile]
+Language=NSIS
+Extension=nsi
+Compile=C:\Program Files\NSIS\makensis.exe
+Variables=%s
+RunWhenComplete=on
+InputForOutput=off
+
+CaptureOutput=on

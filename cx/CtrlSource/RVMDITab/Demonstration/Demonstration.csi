@@ -1,0 +1,10 @@
+[History]
+B0=Demonstration/frmMainMDI/chkDrawIcons_Click
+B1=Demonstration/frmChild1/Form_Resize
+B2=Demonstration/frmChild/Form_Resize
+B3=Demonstration/frmChild/Form_QueryUnload
+B4=Demonstration/frmMainMDI/MDIForm_Load
+B5=Demonstration/frmMainMDI/picBar_Resize
+B6=Demonstration/frmMainMDI/RevMDITabsCtl1_ColorChanged
+B7=Demonstration/frmMainMDI/RevMDITabsCtl1_TabBarClick
+B8=Demonstration/frmMainMDI/cboStyle_Click

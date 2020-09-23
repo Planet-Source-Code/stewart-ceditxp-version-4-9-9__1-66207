@@ -1,0 +1,4 @@
+// Icons for this application
+64      ICON    MOVEABLE        PRELOAD         pinned.ico
+65      ICON    MOVEABLE        PRELOAD         unpinned.ico
+66	ICON	MOVEABLE        PRELOAD         close.ico

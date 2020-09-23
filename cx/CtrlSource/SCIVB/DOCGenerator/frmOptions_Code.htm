@@ -1,0 +1,622 @@
+<HTML>
+<HEAD><TITLE>frmOptions Source Code</TITLE>
+</HEAD>
+<BODY>
+<h1><b>frmOptions&nbsp;Source
+Code</b></h1>
+<font face=monospace size=2>
+<P><FONT color=Blue>Option</FONT>&nbsp;<FONT color=Blue>Explicit</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;hLighter()&nbsp;<FONT color=Blue>As</FONT>&nbsp;Highlighter&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;lStyle&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;hlPath&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>&nbsp;<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;hlMain&nbsp;<FONT color=Blue>As</FONT>&nbsp;SCIHighlighter&nbsp;<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;WhatToDo&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;lSelLang&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;Lexer()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;clrBack_Click()<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).StyleBack(lStyle)&nbsp;=&nbsp;clrBack.SelectedColor&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;clrFore_Click()<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).StyleFore(lStyle)&nbsp;=&nbsp;clrFore.SelectedColor&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmbFont_Click()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).StyleFont(lStyle)&nbsp;=&nbsp;cmbFont.Text&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmbKeyword_Click()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;txtKeyword.Text&nbsp;=&nbsp;hLighter(lSelLang).Keywords(cmbKeyword.ListIndex)<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmdCancel_Click()<br>
+
+&nbsp;&nbsp;WhatToDo&nbsp;=&nbsp;0&nbsp;<br>
+
+&nbsp;&nbsp;Me.Hide&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmdOK_Click()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;i&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;WriteSettings&nbsp;<br>
+
+&nbsp;&nbsp;WhatToDo&nbsp;=&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;Call&nbsp;hlMain.LoadHighlighters(hlPath)<br>
+
+&nbsp;&nbsp;Me.Hide&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;Form_Load()<br>
+
+&nbsp;&nbsp;<font color=Green>'ListLangs&nbsp;App.Path&nbsp;&&nbsp;"\highlighters"</font><br>
+
+&nbsp;&nbsp;<FONT color=Blue>With</FONT>&nbsp;tvMain&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.Initialize&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.InitializeImageList&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;.AddBitmap(LoadResPicture(102,&nbsp;vbResBitmap))&nbsp;<font color=Green>'Folder&nbsp;Open</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;.AddBitmap(LoadResPicture(103,&nbsp;vbResBitmap))&nbsp;<font color=Green>'Page</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;.AddBitmap(LoadResPicture(104,&nbsp;vbResBitmap))&nbsp;<font color=Green>'Folder</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.ItemHeight&nbsp;=&nbsp;18&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<font color=Green>'LoadResPicture(103,&nbsp;vbResIcon)</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<font color=Green>'Call&nbsp;.AddIcon&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;Folder&nbsp;Open</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<font color=Green>'Call&nbsp;.AddIcon&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;Page</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<font color=Green>'Call&nbsp;.AddIcon(LoadResPicture(104,&nbsp;vbResIcon))&nbsp;&nbsp;'&nbsp;Folder&nbsp;Folder</font><br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>With</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;InitTreeView&nbsp;<br>
+
+&nbsp;&nbsp;Me.Left&nbsp;=&nbsp;GetSetting("ScintillaClass",&nbsp;"Settings",&nbsp;"OptLeft",&nbsp;(Screen.Width&nbsp;-&nbsp;Me.Width)&nbsp;\&nbsp;2)<br>
+
+&nbsp;&nbsp;Me.Top&nbsp;=&nbsp;GetSetting("ScintillaClass",&nbsp;"Settings",&nbsp;"OptTop",&nbsp;(Screen.Height&nbsp;-&nbsp;Me.Height)&nbsp;\&nbsp;2)<br>
+
+&nbsp;&nbsp;tbMain_TabClick&nbsp;1,&nbsp;1&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;Form_Unload(Cancel&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Integer</FONT>)<br>
+
+&nbsp;&nbsp;Erase&nbsp;Lexer()<br>
+
+&nbsp;&nbsp;SaveSetting&nbsp;"ScintillaClass",&nbsp;"Settings",&nbsp;"OptLeft",&nbsp;Me.Left&nbsp;<br>
+
+&nbsp;&nbsp;SaveSetting&nbsp;"ScintillaClass",&nbsp;"Settings",&nbsp;"OptTop",&nbsp;Me.Top&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;lstStyle_Click()<br>
+
+&nbsp;&nbsp;DispOpt&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;tbMain_TabClick(OldTab&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Integer</FONT>,&nbsp;NewTab&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Integer</FONT>)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;picOptions.visible&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;picStyles.visible&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;picKeywords.visible&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Select</FONT>&nbsp;<FONT color=Blue>Case</FONT>&nbsp;NewTab&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>Case</FONT>&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;picOptions.visible&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chkAutoCloseBraces.SetFocus&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>Case</FONT>&nbsp;2&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;picStyles.visible&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;txtFilter.SetFocus&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>Case</FONT>&nbsp;3&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;picKeywords.visible&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmbKeyword.SetFocus&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Select</FONT>&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;tvMain_NodeClick(<FONT color=Blue>ByVal</FONT>&nbsp;hNode&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>)<br>
+
+&nbsp;&nbsp;lSelLang&nbsp;=&nbsp;-1&nbsp;<br>
+
+&nbsp;&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;Left(tvMain.GetNodeKey(hNode),&nbsp;3)&nbsp;=&nbsp;"syn"&nbsp;<FONT color=Blue>Then</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;picOptions.visible&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;picKeywords.visible&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;picStyles.visible&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;lSelLang&nbsp;=&nbsp;Mid(tvMain.GetNodeKey(hNode),&nbsp;4)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>If</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;Left(tvMain.GetNodeKey(hNode),&nbsp;3)&nbsp;=&nbsp;"key"&nbsp;<FONT color=Blue>Then</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;picOptions.visible&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;picKeywords.visible&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;picStyles.visible&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;lSelLang&nbsp;=&nbsp;Mid(tvMain.GetNodeKey(hNode),&nbsp;4)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>If</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;Left(tvMain.GetNodeKey(hNode),&nbsp;3)&nbsp;=&nbsp;"gen"&nbsp;<FONT color=Blue>Then</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;picOptions.visible&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;picKeywords.visible&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;picStyles.visible&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;lSelLang&nbsp;=&nbsp;-1&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>If</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;DispOpt&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;txtComment_Change()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).strComment&nbsp;=&nbsp;txtComment.Text&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;txtFilter_Change()<br>
+
+<font color=Green>'&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next</font><br>
+
+&nbsp;&nbsp;hLighter(lSelLang).strFilter&nbsp;=&nbsp;txtFilter.Text&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;txtKeyword_Change()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).Keywords(cmbKeyword.ListIndex)&nbsp;=&nbsp;txtKeyword.Text&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;txtSize_Change()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).StyleSize(lStyle)&nbsp;=&nbsp;txtSize.Text&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;txtSize_KeyPress(KeyAscii&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Integer</FONT>)<br>
+
+&nbsp;&nbsp;KeyAscii&nbsp;=&nbsp;IsNumericKey(KeyAscii)<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;chkBold_Click()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).StyleBold(lStyle)&nbsp;=&nbsp;chkBold.Value&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;chkEOL_Click()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).StyleEOLFilled(lStyle)&nbsp;=&nbsp;chkEOL.Value&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;chkItalic_Click()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).StyleItalic(lStyle)&nbsp;=&nbsp;chkItalic.Value&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;chkUnderline_Click()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).StyleUnderline(lStyle)&nbsp;=&nbsp;chkUnderline.Value&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;chkVisible_Click()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).StyleVisible(lStyle)&nbsp;=&nbsp;chkVisible.Value&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;DispOpt(<FONT color=Blue>Optional</FONT>&nbsp;ListStyles&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;=&nbsp;<FONT color=Blue>False</FONT>)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;lLexNum&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>,&nbsp;i&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<font color=Green>'&nbsp;This&nbsp;is&nbsp;a&nbsp;basic&nbsp;function&nbsp;that&nbsp;will&nbsp;just&nbsp;set&nbsp;the&nbsp;options</font><br>
+
+&nbsp;&nbsp;<font color=Green>'&nbsp;to&nbsp;the&nbsp;different&nbsp;options&nbsp;(checkboxes,&nbsp;textboxes,&nbsp;etc.),</font><br>
+
+&nbsp;&nbsp;<font color=Green>'&nbsp;based&nbsp;on&nbsp;the&nbsp;highlighter&nbsp;selected.</font><br>
+
+&nbsp;&nbsp;<font color=Green>'If&nbsp;lstStyle.ListIndex&nbsp;=&nbsp;-1&nbsp;Then&nbsp;Exit&nbsp;Sub</font><br>
+
+&nbsp;&nbsp;lStyle&nbsp;=&nbsp;lstStyle.ItemData(lstStyle.ListIndex)<br>
+
+&nbsp;&nbsp;txtFilter.Text&nbsp;=&nbsp;hLighter(lSelLang).strFilter&nbsp;<br>
+
+&nbsp;&nbsp;cmbFont.Text&nbsp;=&nbsp;hLighter(lSelLang).StyleFont(lStyle)<br>
+
+&nbsp;&nbsp;clrFore.SelectedColor&nbsp;=&nbsp;hLighter(lSelLang).StyleFore(lStyle)<br>
+
+&nbsp;&nbsp;clrBack.SelectedColor&nbsp;=&nbsp;hLighter(lSelLang).StyleBack(lStyle)<br>
+
+&nbsp;&nbsp;txtStyleDesc.Text&nbsp;=&nbsp;IIf(hLighter(lSelLang).StyleName(lStyle)&nbsp;&lt;&gt;&nbsp;"",&nbsp;hLighter(lSelLang).StyleName(lStyle),&nbsp;IIf(Lexer(lStyle)&nbsp;&lt;&gt;&nbsp;"",&nbsp;Lexer(lStyle),&nbsp;""))<br>
+
+&nbsp;&nbsp;txtComment.Text&nbsp;=&nbsp;hLighter(lSelLang).strComment&nbsp;<br>
+
+&nbsp;&nbsp;txtSize.Text&nbsp;=&nbsp;hLighter(lSelLang).StyleSize(lStyle)<br>
+
+&nbsp;&nbsp;chkBold.Value&nbsp;=&nbsp;hLighter(lSelLang).StyleBold(lStyle)<br>
+
+&nbsp;&nbsp;chkEOL.Value&nbsp;=&nbsp;hLighter(lSelLang).StyleEOLFilled(lStyle)<br>
+
+&nbsp;&nbsp;chkItalic.Value&nbsp;=&nbsp;hLighter(lSelLang).StyleItalic(lStyle)<br>
+
+&nbsp;&nbsp;chkUnderline.Value&nbsp;=&nbsp;hLighter(lSelLang).StyleUnderline(lStyle)<br>
+
+&nbsp;&nbsp;chkVisible.Value&nbsp;=&nbsp;hLighter(lSelLang).StyleVisible(lStyle)<br>
+
+&nbsp;&nbsp;cmbKeyword.ListIndex&nbsp;=&nbsp;0&nbsp;<br>
+
+&nbsp;&nbsp;txtKeyword.Text&nbsp;=&nbsp;hLighter(lSelLang).Keywords(0)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;lSelLang&nbsp;&gt;&nbsp;-1&nbsp;<FONT color=Blue>And</FONT>&nbsp;ListStyles&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<FONT color=Blue>Then</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;lstStyle.Clear&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;lLexNum&nbsp;=&nbsp;hLighter(lSelLang).iLang&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Lexer()&nbsp;=&nbsp;Split(LexList(lLexNum),&nbsp;":")<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>For</FONT>&nbsp;i&nbsp;=&nbsp;0&nbsp;<FONT color=Blue>To</FONT>&nbsp;127&nbsp;<font color=Green>'UBound(Lexer())</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;LCase(hLighter(lSelLang).StyleName(i))&nbsp;=&nbsp;"defau"&nbsp;<FONT color=Blue>Or</FONT>&nbsp;LCase(hLighter(lSelLang).StyleName(i))&nbsp;=&nbsp;"not&nbsp;set"&nbsp;<FONT color=Blue>Or</FONT>&nbsp;LCase(hLighter(lSelLang).StyleName(i))&nbsp;=&nbsp;"default"&nbsp;<FONT color=Blue>Or</FONT>&nbsp;LCase(hLighter(lSelLang).StyleName(i))&nbsp;=&nbsp;"defaul"&nbsp;<FONT color=Blue>Or</FONT>&nbsp;LCase(hLighter(lSelLang).StyleName(i))&nbsp;=&nbsp;"none"&nbsp;<FONT color=Blue>Then</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hLighter(lSelLang).StyleName(i)&nbsp;=&nbsp;""&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>If</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;UBound(hLighter(lSelLang).StyleName)&nbsp;&gt;&nbsp;0&nbsp;<FONT color=Blue>And</FONT>&nbsp;hLighter(lSelLang).StyleName(i)&nbsp;&lt;&gt;&nbsp;""&nbsp;<FONT color=Blue>Then</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lstStyle.AddItem&nbsp;hLighter(lSelLang).StyleName(i)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lstStyle.ItemData(lstStyle.ListCount&nbsp;-&nbsp;1)&nbsp;=&nbsp;i&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ElseIf&nbsp;UBound(Lexer)&nbsp;&gt;=&nbsp;i&nbsp;<FONT color=Blue>And</FONT>&nbsp;Lexer(i)&nbsp;&lt;&gt;&nbsp;""&nbsp;<FONT color=Blue>Then</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lstStyle.AddItem&nbsp;Lexer(i)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lstStyle.ItemData(lstStyle.ListCount&nbsp;-&nbsp;1)&nbsp;=&nbsp;i&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>If</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>Next</FONT>&nbsp;i&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;lstStyle.ListCount&nbsp;&gt;&nbsp;0&nbsp;<FONT color=Blue>Then</FONT>&nbsp;lstStyle.ListIndex&nbsp;=&nbsp;0&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>If</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;WriteSettings()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;i&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>,&nbsp;x&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;strFile&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;strOutput&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>For</FONT>&nbsp;i&nbsp;=&nbsp;0&nbsp;<FONT color=Blue>To</FONT>&nbsp;UBound(hLighter)&nbsp;-&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Open&nbsp;Left(hLighter(i).strFile,&nbsp;Len(hLighter(i).strFile)&nbsp;-&nbsp;3)&nbsp;&&nbsp;"bin"&nbsp;<FONT color=Blue>For</FONT>&nbsp;Binary&nbsp;Access&nbsp;Write&nbsp;<FONT color=Blue>As</FONT>&nbsp;#1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hLighter(i).strFile&nbsp;=&nbsp;Left(hLighter(i).strFile,&nbsp;Len(hLighter(i).strFile)&nbsp;-&nbsp;3)&nbsp;&&nbsp;"bin"&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Put&nbsp;#1,&nbsp;,&nbsp;hLighter(i)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Close&nbsp;#1&nbsp;<br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;strFile&nbsp;=&nbsp;hLighter(i).strFile</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;writeini&nbsp;"data",&nbsp;"filter",&nbsp;hLighter(i).strFilter,&nbsp;strFile</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;writeini&nbsp;"data",&nbsp;"LangName",&nbsp;hLighter(i).strName,&nbsp;strFile</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;X&nbsp;=&nbsp;0&nbsp;To&nbsp;127</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;""</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;StyleSet(i,&nbsp;X)&nbsp;Then</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;hLighter(i).StyleBold(X)&nbsp;=&nbsp;1&nbsp;Then</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;"B"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;":"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;hLighter(i).StyleItalic(X)&nbsp;=&nbsp;1&nbsp;Then</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;"I"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;":"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;hLighter(i).StyleUnderline(X)&nbsp;=&nbsp;1&nbsp;Then</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;"U"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;":"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;hLighter(i).StyleVisible(X)&nbsp;=&nbsp;1&nbsp;Then</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;"V"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;":C:"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;hLighter(i).StyleEOLFilled(X)&nbsp;=&nbsp;1&nbsp;Then</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;"E"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;"::"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;hLighter(i).StyleFont(X)&nbsp;<>&nbsp;""&nbsp;Then</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;hLighter(i).StyleFont(X)</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;":"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;hLighter(i).StyleSize(X)</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;":"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;hLighter(i).StyleFore(X)&nbsp;<>&nbsp;0&nbsp;Then</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;hLighter(i).StyleFore(X)</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;":"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;hLighter(i).StyleBack(X)&nbsp;<>&nbsp;0&nbsp;Then</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;hLighter(i).StyleBack(X)</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;":"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;hLighter(i).StyleName(X)&nbsp;<>&nbsp;""&nbsp;Then</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;hLighter(i).StyleName(X)</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strOutput&nbsp;=&nbsp;strOutput&nbsp;&&nbsp;":"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;writeini("data",&nbsp;"Style["&nbsp;&&nbsp;X&nbsp;&&nbsp;"]",&nbsp;strOutput,&nbsp;strFile)</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;X</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;X&nbsp;=&nbsp;0&nbsp;To&nbsp;7</font><br>
+
+<font color=Green>'</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;hLighter(i).Keywords(X)&nbsp;<>&nbsp;""&nbsp;Then</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;writeini("data",&nbsp;"Keywords["&nbsp;&&nbsp;X&nbsp;&&nbsp;"]",&nbsp;hLighter(i).Keywords(X),&nbsp;strFile)</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If</font><br>
+
+<font color=Green>'&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;X</font><br>
+
+&nbsp;&nbsp;<FONT color=Blue>Next</FONT>&nbsp;i&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;txtStyleDesc_Change()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;hLighter(lSelLang).StyleName(lStyle)&nbsp;=&nbsp;txtStyleDesc.Text&nbsp;<br>
+
+&nbsp;&nbsp;lstStyle.List(lstStyle.ListIndex)&nbsp;=&nbsp;txtStyleDesc.Text&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;InitTreeView()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;pNode&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>,&nbsp;pMain&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;i&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>With</FONT>&nbsp;tvMain&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.Clear&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.HideSelection&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.HasRootLines&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.HasButtons&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.HasLines&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.TrackSelect&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;pMain&nbsp;=&nbsp;.AddNode(,&nbsp;,&nbsp;"Main",&nbsp;"Settings",&nbsp;2,&nbsp;0,&nbsp;<FONT color=Blue>True</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.AddNode&nbsp;pMain,&nbsp;,&nbsp;"gen",&nbsp;"General&nbsp;Options",&nbsp;1,&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;pNode&nbsp;=&nbsp;.AddNode(pMain,&nbsp;,&nbsp;"Syntax",&nbsp;"Syntax",&nbsp;2,&nbsp;0)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>ReDim</FONT>&nbsp;hLighter(0&nbsp;<FONT color=Blue>To</FONT>&nbsp;UBound(Highlighters))<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>For</FONT>&nbsp;i&nbsp;=&nbsp;0&nbsp;<FONT color=Blue>To</FONT>&nbsp;UBound(Highlighters)&nbsp;-&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hLighter(i)&nbsp;=&nbsp;Highlighters(i)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.AddNode&nbsp;pNode,&nbsp;rLast,&nbsp;"syn"&nbsp;&&nbsp;i,&nbsp;hLighter(i).strName,&nbsp;1,&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>Next</FONT>&nbsp;i&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.Expand&nbsp;pNode&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;pNode&nbsp;=&nbsp;.AddNode(pMain,&nbsp;,&nbsp;"Keywords",&nbsp;"Keywords",&nbsp;2,&nbsp;0)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>For</FONT>&nbsp;i&nbsp;=&nbsp;0&nbsp;<FONT color=Blue>To</FONT>&nbsp;UBound(Highlighters)&nbsp;-&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hLighter(i)&nbsp;=&nbsp;Highlighters(i)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.AddNode&nbsp;pNode,&nbsp;rLast,&nbsp;"key"&nbsp;&&nbsp;i,&nbsp;hLighter(i).strName,&nbsp;1,&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>Next</FONT>&nbsp;i&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.Expand&nbsp;pMain&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>With</FONT>&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+</P>
+</font>
+</BODY>
+</HTML>
+

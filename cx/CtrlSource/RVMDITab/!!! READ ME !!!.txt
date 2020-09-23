@@ -1,0 +1,11 @@
+- Revelatek MDITabs Control
+--------------------------------------
+
+To open this project group use gRevMDITabs.vbg file.
+
+NOTE:
+Before opening this project copy included SubclassingSink.tlb type library into your system32 folder.
+
+Thanks,
+Andrea Batina
+Revelatek

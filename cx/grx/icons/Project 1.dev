@@ -1,0 +1,12 @@
+[Project]
+FileName=C:\cEdit\cEdit\grx\icons\Project 1.dev
+Name=Project 1
+Use_gpp=1
+UnitCount=1
+ResFiles=C:\cEdit\cEdit\grx\icons\rsrc.rc
+NoConsole=1
+IsDll=0
+Icon=C:\DEV-C_~1\Bin\Mainicon.ico
+[Unit1]
+FileName=C:\cEdit\cEdit\grx\icons\Untitled1.cpp
+FileTime=731096918

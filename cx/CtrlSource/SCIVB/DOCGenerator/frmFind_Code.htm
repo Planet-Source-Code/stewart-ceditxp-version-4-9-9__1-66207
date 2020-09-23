@@ -1,0 +1,108 @@
+<HTML>
+<HEAD><TITLE>frmFind Source Code</TITLE>
+</HEAD>
+<BODY>
+<h1><b>frmFind&nbsp;Source
+Code</b></h1>
+<font face=monospace size=2>
+<P><FONT color=Blue>Option</FONT>&nbsp;<FONT color=Blue>Explicit</FONT>&nbsp;<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;bFind&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;DoWhat&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Integer</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmdCancel_Click()<br>
+
+&nbsp;&nbsp;Unload&nbsp;Me&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmdFind_Click()<br>
+
+&nbsp;&nbsp;DoWhat&nbsp;=&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;Me.Hide&nbsp;<br>
+
+&nbsp;&nbsp;AddCombo&nbsp;cmbFind,&nbsp;cmbFind.Text&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmdMarkAll_Click()<br>
+
+&nbsp;&nbsp;DoWhat&nbsp;=&nbsp;2&nbsp;<br>
+
+&nbsp;&nbsp;Me.Hide&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;Form_Load()<br>
+
+&nbsp;&nbsp;DoWhat&nbsp;=&nbsp;0&nbsp;<br>
+
+&nbsp;&nbsp;<font color=Green>'Flatten&nbsp;Me</font><br>
+
+&nbsp;&nbsp;Me.Left&nbsp;=&nbsp;GetSetting("ScintillaClass",&nbsp;"Settings",&nbsp;"FindLeft",&nbsp;(Screen.Width&nbsp;-&nbsp;Me.Width)&nbsp;\&nbsp;2)<br>
+
+&nbsp;&nbsp;Me.Top&nbsp;=&nbsp;GetSetting("ScintillaClass",&nbsp;"Settings",&nbsp;"FindTop",&nbsp;(Screen.Height&nbsp;-&nbsp;Me.Height)&nbsp;\&nbsp;2)<br>
+
+&nbsp;&nbsp;chkCase.Value&nbsp;=&nbsp;GetSetting("ScintillaClass",&nbsp;"Settings",&nbsp;"FchkCase",&nbsp;0)<br>
+
+&nbsp;&nbsp;chkRegExp.Value&nbsp;=&nbsp;GetSetting("ScintillaClass",&nbsp;"Settings",&nbsp;"FchkRegEx",&nbsp;0)<br>
+
+&nbsp;&nbsp;chkWhole.Value&nbsp;=&nbsp;GetSetting("ScintillaClass",&nbsp;"Settings",&nbsp;"FchkWhole",&nbsp;0)<br>
+
+&nbsp;&nbsp;chkWrap.Value&nbsp;=&nbsp;GetSetting("ScintillaClass",&nbsp;"Settings",&nbsp;"FchkWrap",&nbsp;1)<br>
+
+&nbsp;&nbsp;optUp.Value&nbsp;=&nbsp;GetSetting("ScintillaClass",&nbsp;"Settings",&nbsp;"FOptUp",&nbsp;0)<br>
+
+&nbsp;&nbsp;ComboLoadHistory&nbsp;cmbFind&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;cmbFind.ListCount&nbsp;&gt;&nbsp;0&nbsp;<FONT color=Blue>Then</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;cmbFind.Text&nbsp;=&nbsp;cmbFind.List(0)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>If</FONT>&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;Label1_Click()<br>
+
+<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;Form_Unload(Cancel&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Integer</FONT>)<br>
+
+&nbsp;&nbsp;SaveSetting&nbsp;"ScintillaClass",&nbsp;"Settings",&nbsp;"FindLeft",&nbsp;Me.Left&nbsp;<br>
+
+&nbsp;&nbsp;SaveSetting&nbsp;"ScintillaClass",&nbsp;"Settings",&nbsp;"FindTop",&nbsp;Me.Top&nbsp;<br>
+
+&nbsp;&nbsp;SaveSetting&nbsp;"ScintillaClass",&nbsp;"Settings",&nbsp;"FchkCase",&nbsp;chkCase.Value&nbsp;<br>
+
+&nbsp;&nbsp;SaveSetting&nbsp;"ScintillaClass",&nbsp;"Settings",&nbsp;"FchkRegEx",&nbsp;chkRegExp.Value&nbsp;<br>
+
+&nbsp;&nbsp;SaveSetting&nbsp;"ScintillaClass",&nbsp;"Settings",&nbsp;"FchkWhole",&nbsp;chkWhole.Value&nbsp;<br>
+
+&nbsp;&nbsp;SaveSetting&nbsp;"ScintillaClass",&nbsp;"Settings",&nbsp;"FchkWrap",&nbsp;chkWrap.Value&nbsp;<br>
+
+&nbsp;&nbsp;SaveSetting&nbsp;"ScintillaClass",&nbsp;"Settings",&nbsp;"FOptUp",&nbsp;optUp.Value&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+</P>
+</font>
+</BODY>
+</HTML>
+

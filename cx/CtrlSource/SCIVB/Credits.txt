@@ -1,0 +1,17 @@
+Below are some credit's I would like to list to people who's source
+I've used in the process of writing this control.
+
+
+SCIVB ActiveX Control
+----------------------------------------
+Stewart		- Co-Author of SCIVB
+Stu Collier	- Co-Author of SCIVB
+Paul Caton	- Excellent subclassing threw asm class
+Steve Mcmahon	- Help plus some subclassing code used in color box.
+Carles P.V.	- Self Contained Treeview Usercontrol (Options Dialog)
+Tom de Lange	- Ariel Color Box (Options Dialog)
+Nick Gisburne	- Simple Tab Control (Options Dialog)
+
+I'm sure there are some others but these are the primary people who either
+assisted in this project or wrote self contained controls used in this
+project.
