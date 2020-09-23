@@ -1,0 +1,138 @@
+<HTML>
+<HEAD><TITLE>frmNewLang Source Code</TITLE>
+</HEAD>
+<BODY>
+<h1><b>frmNewLang&nbsp;Source
+Code</b></h1>
+<font face=monospace size=2>
+<P><br>
+
+<FONT color=Blue>Option</FONT>&nbsp;<FONT color=Blue>Explicit</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;strDir&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmbLexer_Click()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;txtName.Text&nbsp;=&nbsp;""&nbsp;<FONT color=Blue>Then</FONT>&nbsp;txtName.Text&nbsp;=&nbsp;cmbLexer.Text&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmdCancel_Click()<br>
+
+&nbsp;&nbsp;Unload&nbsp;Me&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmdOK_Click()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;strFile&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;strHold&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;lLang&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Integer</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;strLang&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;i&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;txtName.Text&nbsp;=&nbsp;""&nbsp;<FONT color=Blue>Then</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;MsgBox&nbsp;"Please&nbsp;enter&nbsp;a&nbsp;valid&nbsp;name&nbsp;for&nbsp;this&nbsp;language"&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>Exit</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>If</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;lLang&nbsp;=&nbsp;cmbLexer.ListIndex&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;lLang&nbsp;&gt;&nbsp;28&nbsp;<FONT color=Blue>Then</FONT>&nbsp;lLang&nbsp;=&nbsp;lLang&nbsp;+&nbsp;2&nbsp;<br>
+
+&nbsp;&nbsp;strLang&nbsp;=&nbsp;lLang&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;hTemp&nbsp;<FONT color=Blue>As</FONT>&nbsp;Highlighter&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>For</FONT>&nbsp;i&nbsp;=&nbsp;0&nbsp;<FONT color=Blue>To</FONT>&nbsp;127&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<font color=Green>'hTemp.StyleBack(i)&nbsp;=&nbsp;clrBack.SelectedColor</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<font color=Green>'hTemp.StyleFore(i)&nbsp;=&nbsp;clrFore.SelectedColor</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;hTemp.StyleFont(i)&nbsp;=&nbsp;cmbFont.Text&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;hTemp.StyleVisible(i)&nbsp;=&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;hTemp.StyleSize(i)&nbsp;=&nbsp;txtSize.Text&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Next</FONT>&nbsp;i&nbsp;<br>
+
+&nbsp;&nbsp;hTemp.iLang&nbsp;=&nbsp;lLang&nbsp;<br>
+
+&nbsp;&nbsp;hTemp.strName&nbsp;=&nbsp;txtName.Text&nbsp;<br>
+
+&nbsp;&nbsp;strFile&nbsp;=&nbsp;strDir&nbsp;&&nbsp;"\"&nbsp;&&nbsp;txtName.Text&nbsp;&&nbsp;".bin"&nbsp;<br>
+
+&nbsp;&nbsp;Open&nbsp;strFile&nbsp;<FONT color=Blue>For</FONT>&nbsp;Binary&nbsp;Access&nbsp;Write&nbsp;<FONT color=Blue>As</FONT>&nbsp;#1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;hTemp.strFile&nbsp;=&nbsp;strFile&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Put&nbsp;#1,&nbsp;,&nbsp;hTemp&nbsp;<br>
+
+&nbsp;&nbsp;Close&nbsp;#1&nbsp;<br>
+
+<font color=Green>'&nbsp;&nbsp;strFile&nbsp;=&nbsp;strDir&nbsp;&&nbsp;"\"&nbsp;&&nbsp;txtName.Text&nbsp;&&nbsp;".CHL"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;writeini&nbsp;"data",&nbsp;"LangName",&nbsp;txtName.Text,&nbsp;strFile</font><br>
+
+<font color=Green>'&nbsp;&nbsp;writeini&nbsp;"data",&nbsp;"Language",&nbsp;strLang,&nbsp;strFile</font><br>
+
+<font color=Green>'&nbsp;&nbsp;strHold&nbsp;=&nbsp;":::V:C:::"&nbsp;&&nbsp;cmbFont.Text&nbsp;&&nbsp;":"&nbsp;&&nbsp;txtSize.Text&nbsp;&&nbsp;":"&nbsp;&&nbsp;clrBack.SelectedColor&nbsp;&&nbsp;":"&nbsp;&&nbsp;clrBack.SelectedColor&nbsp;&&nbsp;"::"</font><br>
+
+<font color=Green>'&nbsp;&nbsp;writeini&nbsp;"data",&nbsp;"Style[32]",&nbsp;strHold,&nbsp;strFile</font><br>
+
+&nbsp;&nbsp;LoadHighlighter&nbsp;strFile&nbsp;<br>
+
+&nbsp;&nbsp;<font color=Green>'frmOptions.ListLangs&nbsp;strDir</font><br>
+
+&nbsp;&nbsp;Unload&nbsp;Me&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;Form_Load()<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;i&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>For</FONT>&nbsp;i&nbsp;=&nbsp;0&nbsp;<FONT color=Blue>To</FONT>&nbsp;Screen.FontCount&nbsp;-&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;cmbFont.AddItem&nbsp;Screen.Fonts(i)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Next</FONT>&nbsp;i&nbsp;<br>
+
+&nbsp;&nbsp;cmbFont.Text&nbsp;=&nbsp;"Courier&nbsp;New"&nbsp;<br>
+
+&nbsp;&nbsp;cmbLexer.ListIndex&nbsp;=&nbsp;3&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;txtSize_KeyPress(KeyAscii&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Integer</FONT>)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;<FONT color=Blue>Not</FONT>&nbsp;IsNumeric(Chr(KeyAscii))&nbsp;<FONT color=Blue>And</FONT>&nbsp;(KeyAscii&nbsp;&lt;&gt;&nbsp;8)&nbsp;<FONT color=Blue>Then</FONT>&nbsp;KeyAscii&nbsp;=&nbsp;0&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+</P>
+</font>
+</BODY>
+</HTML>
+

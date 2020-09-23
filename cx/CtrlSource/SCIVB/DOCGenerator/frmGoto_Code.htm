@@ -1,0 +1,74 @@
+<HTML>
+<HEAD><TITLE>frmGoto Source Code</TITLE>
+</HEAD>
+<BODY>
+<h1><b>frmGoto&nbsp;Source
+Code</b></h1>
+<font face=monospace size=2>
+<P><FONT color=Blue>Option</FONT>&nbsp;<FONT color=Blue>Explicit</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;iWhatToDo&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmdCancel_Click()<br>
+
+&nbsp;&nbsp;iWhatToDo&nbsp;=&nbsp;0&nbsp;<br>
+
+&nbsp;&nbsp;Me.Hide&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;cmdGo_Click()<br>
+
+&nbsp;&nbsp;iWhatToDo&nbsp;=&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;Me.Hide&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;Form_Load()<br>
+
+&nbsp;&nbsp;Me.Left&nbsp;=&nbsp;GetSetting("ScintillaClass",&nbsp;"Settings",&nbsp;"GotoLeft",&nbsp;(Screen.Width&nbsp;-&nbsp;Me.Width)&nbsp;\&nbsp;2)<br>
+
+&nbsp;&nbsp;Me.Top&nbsp;=&nbsp;GetSetting("ScintillaClass",&nbsp;"Settings",&nbsp;"GotoTop",&nbsp;(Screen.Height&nbsp;-&nbsp;Me.Height)&nbsp;\&nbsp;2)<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;Form_Unload(Cancel&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Integer</FONT>)<br>
+
+&nbsp;&nbsp;SaveSetting&nbsp;"ScintillaClass",&nbsp;"Settings",&nbsp;"GotoLeft",&nbsp;Me.Left&nbsp;<br>
+
+&nbsp;&nbsp;SaveSetting&nbsp;"ScintillaClass",&nbsp;"Settings",&nbsp;"GotoTop",&nbsp;Me.Top&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;txtColumn_KeyPress(KeyAscii&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Integer</FONT>)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;<FONT color=Blue>Not</FONT>&nbsp;IsNumeric(Chr(KeyAscii))&nbsp;<FONT color=Blue>And</FONT>&nbsp;(KeyAscii&nbsp;&lt;&gt;&nbsp;8)&nbsp;<FONT color=Blue>Then</FONT>&nbsp;KeyAscii&nbsp;=&nbsp;0&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;txtLine_KeyPress(KeyAscii&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Integer</FONT>)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;<FONT color=Blue>Not</FONT>&nbsp;IsNumeric(Chr(KeyAscii))&nbsp;<FONT color=Blue>And</FONT>&nbsp;KeyAscii&nbsp;&lt;&gt;&nbsp;8&nbsp;<FONT color=Blue>Then</FONT>&nbsp;KeyAscii&nbsp;=&nbsp;0&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+</P>
+</font>
+</BODY>
+</HTML>
+

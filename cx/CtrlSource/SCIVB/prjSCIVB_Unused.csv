@@ -1,0 +1,436 @@
+MODULE,PROCEDURE,UNUSED VARIABLE/PROC
+SCIVB,FindText,pos
+SCIVB,GetFile,i
+SCIVB,GetLineText,i
+SCIVB,iSubclass_WndProc,Shift
+SCIVB,iSubclass_WndProc,tmpStr
+SCIVB,LoadAPIFile,str
+SCIVB,PrintSCI,LeftOffset
+SCIVB,PrintSCI,TopOffset
+SCIVB,PrintSCI,LeftMargin
+SCIVB,PrintSCI,TopMargin
+SCIVB,PrintSCI,RightMargin
+SCIVB,PrintSCI,BottomMargin
+SCIVB,PrintSCI,rcDrawTo
+SCIVB,PrintSCI,rcPage
+SCIVB,PrintSCI,PhysWidth
+SCIVB,PrintSCI,PhysHeight
+SCIVB,PrintSCI,PrintWidth
+SCIVB,PrintSCI,PrintHeight
+SCIVB,ReplaceAll,pos
+SCIVB,StartCallTip,a
+SCIVB,ToLastSpaceCount,L
+SCIVB,ToLastSpaceCount,i
+SCIVB,ToLastSpaceCount,pos
+SCIVB,ToLastSpaceCount,str
+SCIVB,WriteToFile,i
+SCIVB,Module Level,m_matchBraces
+SCIVB,Module Level,bShowFlags
+SCIVB,Module Level,strAutoComplete
+SCIVB,Module Level,strAutoCompleteStart
+SCIVB,Module Level,bShowAutoComplete
+ModHighlighter,ExportToHTML2,lPrevStyle
+ModHighlighter,LoadDirectory,i
+ModHighlighter,SetHighlighterBasedOnExtension,ua
+ModHighlighter,SetHighlighterBasedOnExtension,ClrExt
+frmOptions,cmdOK_Click,i
+frmOptions,WriteSettings,x
+frmOptions,WriteSettings,strFile
+frmOptions,WriteSettings,strOutput
+ArielColorBox,InitSatColorBoxes,X
+ArielColorBox,InitSatColorBoxes,Y
+ArielColorBox,picPopup_Paint,i
+ArielColorBox,picPopup_Paint,pt
+ArielColorBox,Module Level,cMouseX
+ArielColorBox,Module Level,cMouseY
+modGeneral,piGetShiftState,lR
+modGeneral,piGetShiftState,lKey
+modGeneral,Module Level (Sub/Function),pGetHiWordLoWord
+frmNewLang,cmdOK_Click,strHold
+modCombo,AddCombo,lPos
+GroupBox,DrawFrame,bTheme
+ucTreeView,frTranslateAccel,hEdit
+ucTreeView,iSubclass_WndProc,uTVHTI
+ucTreeView,Module Level (Sub/Function),pvTVSetlParam
+cDirectSCI,GetSelText,i
+cDirectSCI,SetProperty,l1
+cDirectSCI,SetProperty,l2
+modComboAutoComplete,ComboAutoComplete,strCurrentText
+SCIVB,Global (Sub/Function),AddToAPIFile
+SCIVB,Global (Sub/Function),ClearBookmarks
+SCIVB,Global (Sub/Function),DoFind
+SCIVB,Global (Sub/Function),DoGoto
+SCIVB,Global (Sub/Function),DoReplace
+SCIVB,Global (Sub/Function),FindNext
+SCIVB,Global (Sub/Function),FindPrev
+SCIVB,Global (Sub/Function),GotoCol
+SCIVB,Global (Sub/Function),InitScintilla
+SCIVB,Global (Sub/Function),LoadAPIFile
+SCIVB,Global (Sub/Function),LoadFile
+SCIVB,Global (Sub/Function),LoadMacro
+SCIVB,Global (Sub/Function),MoveSCI
+SCIVB,Global (Sub/Function),NextBookmark
+SCIVB,Global (Sub/Function),PlayMacro
+SCIVB,Global (Sub/Function),PrevBookmark
+SCIVB,Global (Sub/Function),PrintDoc
+SCIVB,Global (Sub/Function),ReplaceText
+SCIVB,Global (Sub/Function),SaveMacro
+SCIVB,Global (Sub/Function),SaveToFile
+SCIVB,Global (Sub/Function),SelectLine
+SCIVB,Global (Sub/Function),ShowAbout
+SCIVB,Global (Sub/Function),StartMacroRecord
+SCIVB,Global (Sub/Function),StopMacroRecord
+SCIVB,Global (Sub/Function),ToggleMarker
+SCIHighlighter,Global (Sub/Function),DoOptions
+SCIHighlighter,Global (Sub/Function),ExportToHTML
+SCIHighlighter,Global (Sub/Function),ReadSettings
+SCIHighlighter,Global (Sub/Function),SetHighlighterExt
+ModHighlighter,Global (Sub/Function),ReInit
+ModHighlighter,Global (Sub/Function),ResetSyntaxMDI
+ModHighlighter,Global (Sub/Function),SetString
+modGeneral,Global (Sub/Function),GetSHIFT
+modReg,Global (Sub/Function),ReplaceChars
+ucTreeView,Global (Sub/Function),AddIcon
+ucTreeView,Global (Sub/Function),DeleteNode
+ucTreeView,Global (Sub/Function),EndLabelEdit
+ucTreeView,Global (Sub/Function),EnsureVisible
+ucTreeView,Global (Sub/Function),GetKeyNode
+ucTreeView,Global (Sub/Function),HitTest
+ucTreeView,Global (Sub/Function),HoldDeletePostProcess
+ucTreeView,Global (Sub/Function),IsValidKey
+ucTreeView,Global (Sub/Function),Scroll
+ucTreeView,Global (Sub/Function),SetRedrawMode
+ucTreeView,Global (Sub/Function),StartLabelEdit
+modEnumFonts,Global,SelectedFont
+modEnumFonts,Global,SelectedStyle
+modEnumFonts,Global,SelectedSize
+modEnumFonts,Global,fUnderline
+modEnumFonts,Global,fStrikethru
+cSubclass,Global (Sub/Function),CallOrigWndProc
+cDirectSCI,Global (Sub/Function),AddRefDocument
+cDirectSCI,Global (Sub/Function),AddStyledText
+cDirectSCI,Global (Sub/Function),Allocate
+cDirectSCI,Global (Sub/Function),AppendText
+cDirectSCI,Global (Sub/Function),AssignCmdKey
+cDirectSCI,Global (Sub/Function),AutoCActive
+cDirectSCI,Global (Sub/Function),AutoCCancel
+cDirectSCI,Global (Sub/Function),AutoCComplete
+cDirectSCI,Global (Sub/Function),AutoCGetAutoHide
+cDirectSCI,Global (Sub/Function),AutoCGetCancelAtStart
+cDirectSCI,Global (Sub/Function),AutoCGetChooseSingle
+cDirectSCI,Global (Sub/Function),AutoCGetCurrent
+cDirectSCI,Global (Sub/Function),AutoCGetDropRestOfWord
+cDirectSCI,Global (Sub/Function),AutoCGetIgnoreCase
+cDirectSCI,Global (Sub/Function),AutoCGetMaxHeight
+cDirectSCI,Global (Sub/Function),AutoCGetMaxWidth
+cDirectSCI,Global (Sub/Function),AutoCGetSeparator
+cDirectSCI,Global (Sub/Function),AutoCGetTypeSeparator
+cDirectSCI,Global (Sub/Function),AutoCSelect
+cDirectSCI,Global (Sub/Function),AutoCSetAutoHide
+cDirectSCI,Global (Sub/Function),AutoCSetCancelAtStart
+cDirectSCI,Global (Sub/Function),AutoCSetChooseSingle
+cDirectSCI,Global (Sub/Function),AutoCSetDropRestOfWord
+cDirectSCI,Global (Sub/Function),AutoCSetFillUps
+cDirectSCI,Global (Sub/Function),AutoCSetIgnoreCase
+cDirectSCI,Global (Sub/Function),AutoCSetMaxHeight
+cDirectSCI,Global (Sub/Function),AutoCSetMaxWidth
+cDirectSCI,Global (Sub/Function),AutoCSetSeparator
+cDirectSCI,Global (Sub/Function),AutoCSetTypeSeparator
+cDirectSCI,Global (Sub/Function),AutoCShow
+cDirectSCI,Global (Sub/Function),AutoCStops
+cDirectSCI,Global (Sub/Function),BackTab
+cDirectSCI,Global (Sub/Function),BeginUndoAction
+cDirectSCI,Global (Sub/Function),BraceBadLight
+cDirectSCI,Global (Sub/Function),BraceHighlight
+cDirectSCI,Global (Sub/Function),CallTipCancel
+cDirectSCI,Global (Sub/Function),CallTipSetBack
+cDirectSCI,Global (Sub/Function),CallTipSetFore
+cDirectSCI,Global (Sub/Function),CallTipSetForeHlt
+cDirectSCI,Global (Sub/Function),CallTipSetHlt
+cDirectSCI,Global (Sub/Function),CallTipShow
+cDirectSCI,Global (Sub/Function),CanPaste
+cDirectSCI,Global (Sub/Function),CanRedo
+cDirectSCI,Global (Sub/Function),CanUndo
+cDirectSCI,Global (Sub/Function),CharLeft
+cDirectSCI,Global (Sub/Function),CharLeftExtend
+cDirectSCI,Global (Sub/Function),CharLeftRectExtend
+cDirectSCI,Global (Sub/Function),CharRight
+cDirectSCI,Global (Sub/Function),CharRightExtend
+cDirectSCI,Global (Sub/Function),CharRightRectExtend
+cDirectSCI,Global (Sub/Function),ChooseCaretX
+cDirectSCI,Global (Sub/Function),ClearAll
+cDirectSCI,Global (Sub/Function),ClearAllCmdKeys
+cDirectSCI,Global (Sub/Function),ClearDocumentStyle
+cDirectSCI,Global (Sub/Function),ClearRegisteredImages
+cDirectSCI,Global (Sub/Function),ConvertEOLs
+cDirectSCI,Global (Sub/Function),CopyRange
+cDirectSCI,Global (Sub/Function),CopyText
+cDirectSCI,Global (Sub/Function),CreateDocument
+cDirectSCI,Global (Sub/Function),DeleteBack
+cDirectSCI,Global (Sub/Function),DeleteBackNotLine
+cDirectSCI,Global (Sub/Function),DelLineLeft
+cDirectSCI,Global (Sub/Function),DelLineRight
+cDirectSCI,Global (Sub/Function),DelWordLeft
+cDirectSCI,Global (Sub/Function),DelWordRight
+cDirectSCI,Global (Sub/Function),DocLineFromVisible
+cDirectSCI,Global (Sub/Function),DocumentEnd
+cDirectSCI,Global (Sub/Function),DocumentEndExtend
+cDirectSCI,Global (Sub/Function),DocumentStart
+cDirectSCI,Global (Sub/Function),DocumentStartExtend
+cDirectSCI,Global (Sub/Function),EditToggleOvertype
+cDirectSCI,Global (Sub/Function),EmptyUndoBuffer
+cDirectSCI,Global (Sub/Function),EncodedFromUTF8
+cDirectSCI,Global (Sub/Function),EndUndoAction
+cDirectSCI,Global (Sub/Function),EnsureVisible
+cDirectSCI,Global (Sub/Function),EnsureVisibleEnforcePolicy
+cDirectSCI,Global (Sub/Function),FindColumn
+cDirectSCI,Global (Sub/Function),FormFeed
+cDirectSCI,Global (Sub/Function),GetBackSpaceUnIndents
+cDirectSCI,Global (Sub/Function),GetBufferedDraw
+cDirectSCI,Global (Sub/Function),GetCaretLineVisible
+cDirectSCI,Global (Sub/Function),GetCaretPeriod
+cDirectSCI,Global (Sub/Function),GetCaretSticky
+cDirectSCI,Global (Sub/Function),GetCaretWidth
+cDirectSCI,Global (Sub/Function),GetCodePage
+cDirectSCI,Global (Sub/Function),GetControlCharSymbol
+cDirectSCI,Global (Sub/Function),GetCurLine
+cDirectSCI,Global (Sub/Function),GetCursor
+cDirectSCI,Global (Sub/Function),GetDirectFunction
+cDirectSCI,Global (Sub/Function),GetDirectPointer
+cDirectSCI,Global (Sub/Function),GetDocPointer
+cDirectSCI,Global (Sub/Function),GetEdgeColumn
+cDirectSCI,Global (Sub/Function),GetEdgeMode
+cDirectSCI,Global (Sub/Function),GetEndAtLastLine
+cDirectSCI,Global (Sub/Function),GetFirstVisibleLine
+cDirectSCI,Global (Sub/Function),GetFoldExpanded
+cDirectSCI,Global (Sub/Function),GetFoldLevel
+cDirectSCI,Global (Sub/Function),GetFoldParent
+cDirectSCI,Global (Sub/Function),GetHighlightGuide
+cDirectSCI,Global (Sub/Function),GetHScrollBar
+cDirectSCI,Global (Sub/Function),GetIndent
+cDirectSCI,Global (Sub/Function),GetIndentationGuides
+cDirectSCI,Global (Sub/Function),GetLastChild
+cDirectSCI,Global (Sub/Function),GetLayoutCache
+cDirectSCI,Global (Sub/Function),GetLexer
+cDirectSCI,Global (Sub/Function),GetLine
+cDirectSCI,Global (Sub/Function),GetLineState
+cDirectSCI,Global (Sub/Function),GetLineVisible
+cDirectSCI,Global (Sub/Function),GetMarginLeft
+cDirectSCI,Global (Sub/Function),GetMarginMaskN
+cDirectSCI,Global (Sub/Function),GetMarginRight
+cDirectSCI,Global (Sub/Function),GetMarginSensitiveN
+cDirectSCI,Global (Sub/Function),GetMarginTypeN
+cDirectSCI,Global (Sub/Function),GetMarginWidthN
+cDirectSCI,Global (Sub/Function),GetMaxLineState
+cDirectSCI,Global (Sub/Function),GetModEventMask
+cDirectSCI,Global (Sub/Function),GetMouseDownCaptures
+cDirectSCI,Global (Sub/Function),GetMouseDwellTime
+cDirectSCI,Global (Sub/Function),GetOvertype
+cDirectSCI,Global (Sub/Function),GetPasteConvertEndings
+cDirectSCI,Global (Sub/Function),GetPrintColourMode
+cDirectSCI,Global (Sub/Function),GetPrintMagnification
+cDirectSCI,Global (Sub/Function),GetPrintWrapMode
+cDirectSCI,Global (Sub/Function),GetProperty
+cDirectSCI,Global (Sub/Function),GetPropertyExpanded
+cDirectSCI,Global (Sub/Function),GetPropertyInt
+cDirectSCI,Global (Sub/Function),GetReadOnly
+cDirectSCI,Global (Sub/Function),GetScrollWidth
+cDirectSCI,Global (Sub/Function),GetSearchFlags
+cDirectSCI,Global (Sub/Function),GetSelectionMode
+cDirectSCI,Global (Sub/Function),GetStatus
+cDirectSCI,Global (Sub/Function),GetStyleBits
+cDirectSCI,Global (Sub/Function),GetStyleBitsNeeded
+cDirectSCI,Global (Sub/Function),GetStyledText
+cDirectSCI,Global (Sub/Function),GetTabIndents
+cDirectSCI,Global (Sub/Function),GetTabWidth
+cDirectSCI,Global (Sub/Function),GetTextRange
+cDirectSCI,Global (Sub/Function),GetTwoPhaseDraw
+cDirectSCI,Global (Sub/Function),GetUndoCollection
+cDirectSCI,Global (Sub/Function),GetUsePalette
+cDirectSCI,Global (Sub/Function),GetUseTabs
+cDirectSCI,Global (Sub/Function),GetViewEOL
+cDirectSCI,Global (Sub/Function),GetViewWS
+cDirectSCI,Global (Sub/Function),GetVScrollBar
+cDirectSCI,Global (Sub/Function),GetWrapMode
+cDirectSCI,Global (Sub/Function),GetWrapStartIndent
+cDirectSCI,Global (Sub/Function),GetWrapVisualFlags
+cDirectSCI,Global (Sub/Function),GetWrapVisualFlagsLocation
+cDirectSCI,Global (Sub/Function),GetXOffset
+cDirectSCI,Global (Sub/Function),GetZoom
+cDirectSCI,Global (Sub/Function),GrabFocus
+cDirectSCI,Global (Sub/Function),HideLines
+cDirectSCI,Global (Sub/Function),Home
+cDirectSCI,Global (Sub/Function),HomeDisplay
+cDirectSCI,Global (Sub/Function),HomeDisplayExtend
+cDirectSCI,Global (Sub/Function),HomeExtend
+cDirectSCI,Global (Sub/Function),HomeRectExtend
+cDirectSCI,Global (Sub/Function),HomeWrap
+cDirectSCI,Global (Sub/Function),HomeWrapExtend
+cDirectSCI,Global (Sub/Function),IndicGetStyle
+cDirectSCI,Global (Sub/Function),IndicSetFore
+cDirectSCI,Global (Sub/Function),IndicStyleSet
+cDirectSCI,Global (Sub/Function),InsertText
+cDirectSCI,Global (Sub/Function),LineCopy
+cDirectSCI,Global (Sub/Function),LineCut
+cDirectSCI,Global (Sub/Function),LineDelete
+cDirectSCI,Global (Sub/Function),LineDown
+cDirectSCI,Global (Sub/Function),LineDownExtend
+cDirectSCI,Global (Sub/Function),LineDownRectExtend
+cDirectSCI,Global (Sub/Function),LineDuplicate
+cDirectSCI,Global (Sub/Function),LineEndDisplay
+cDirectSCI,Global (Sub/Function),LineEndDisplayExtend
+cDirectSCI,Global (Sub/Function),LineEndExtend
+cDirectSCI,Global (Sub/Function),LineEndRectExtend
+cDirectSCI,Global (Sub/Function),LineEndWrap
+cDirectSCI,Global (Sub/Function),LineEndWrapExtend
+cDirectSCI,Global (Sub/Function),LineLength
+cDirectSCI,Global (Sub/Function),LineScroll
+cDirectSCI,Global (Sub/Function),LineScrollDown
+cDirectSCI,Global (Sub/Function),LineScrollUp
+cDirectSCI,Global (Sub/Function),LinesJoin
+cDirectSCI,Global (Sub/Function),LinesOnScreen
+cDirectSCI,Global (Sub/Function),LinesSplit
+cDirectSCI,Global (Sub/Function),LineTranspose
+cDirectSCI,Global (Sub/Function),LineUp
+cDirectSCI,Global (Sub/Function),LineUpExtend
+cDirectSCI,Global (Sub/Function),LineUpRectExtend
+cDirectSCI,Global (Sub/Function),LoadLexerLibrary
+cDirectSCI,Global (Sub/Function),LowerCase
+cDirectSCI,Global (Sub/Function),MarkerAdd
+cDirectSCI,Global (Sub/Function),MarkerAddSet
+cDirectSCI,Global (Sub/Function),MarkerDefinePixmap
+cDirectSCI,Global (Sub/Function),MarkerDelete
+cDirectSCI,Global (Sub/Function),MarkerDeleteAll
+cDirectSCI,Global (Sub/Function),MarkerDeleteHandle
+cDirectSCI,Global (Sub/Function),MarkerGet
+cDirectSCI,Global (Sub/Function),MarkerLineFromHandle
+cDirectSCI,Global (Sub/Function),MarkerNext
+cDirectSCI,Global (Sub/Function),MarkerPrevious
+cDirectSCI,Global (Sub/Function),MoveCaretInsideView
+cDirectSCI,Global (Sub/Function),NewLine
+cDirectSCI,Global (Sub/Function),Nulls
+cDirectSCI,Global (Sub/Function),PageDown
+cDirectSCI,Global (Sub/Function),PageDownExtend
+cDirectSCI,Global (Sub/Function),PageDownRectExtend
+cDirectSCI,Global (Sub/Function),PageUp
+cDirectSCI,Global (Sub/Function),PageUpExtend
+cDirectSCI,Global (Sub/Function),PageUpRectExtend
+cDirectSCI,Global (Sub/Function),ParaDown
+cDirectSCI,Global (Sub/Function),ParaDownExtend
+cDirectSCI,Global (Sub/Function),ParaUp
+cDirectSCI,Global (Sub/Function),ParaUpExtend
+cDirectSCI,Global (Sub/Function),PointXFromPosition
+cDirectSCI,Global (Sub/Function),PointYFromPosition
+cDirectSCI,Global (Sub/Function),RegisterImage
+cDirectSCI,Global (Sub/Function),ReleaseDocument
+cDirectSCI,Global (Sub/Function),ReplaceTargetRE
+cDirectSCI,Global (Sub/Function),ScrollCaret
+cDirectSCI,Global (Sub/Function),SearchAnchor
+cDirectSCI,Global (Sub/Function),SearchNext
+cDirectSCI,Global (Sub/Function),SearchPrev
+cDirectSCI,Global (Sub/Function),SelectionDuplicate
+cDirectSCI,Global (Sub/Function),SelectionIsRectangle
+cDirectSCI,Global (Sub/Function),SetAnchor
+cDirectSCI,Global (Sub/Function),SetBufferedDraw
+cDirectSCI,Global (Sub/Function),SetCaretPeriod
+cDirectSCI,Global (Sub/Function),SetCaretPolicy
+cDirectSCI,Global (Sub/Function),SetCaretSticky
+cDirectSCI,Global (Sub/Function),SetCharsDefault
+cDirectSCI,Global (Sub/Function),SetCodePage
+cDirectSCI,Global (Sub/Function),SetControlCharSymbol
+cDirectSCI,Global (Sub/Function),SetCurrentPos
+cDirectSCI,Global (Sub/Function),SetCursor
+cDirectSCI,Global (Sub/Function),SetDocPointer
+cDirectSCI,Global (Sub/Function),SetFoldExpanded
+cDirectSCI,Global (Sub/Function),SetFoldFlags
+cDirectSCI,Global (Sub/Function),SetFoldLevel
+cDirectSCI,Global (Sub/Function),SetHighlightGuide
+cDirectSCI,Global (Sub/Function),SetHotspotActiveBack
+cDirectSCI,Global (Sub/Function),SetHotspotActiveFore
+cDirectSCI,Global (Sub/Function),SetHotspotActiveUnderline
+cDirectSCI,Global (Sub/Function),SetHotspotSingleLine
+cDirectSCI,Global (Sub/Function),SetIndent
+cDirectSCI,Global (Sub/Function),SetLayoutCache
+cDirectSCI,Global (Sub/Function),SetLengthForEncode
+cDirectSCI,Global (Sub/Function),SetLexerLanguage
+cDirectSCI,Global (Sub/Function),SetLineState
+cDirectSCI,Global (Sub/Function),SetMarginLeft
+cDirectSCI,Global (Sub/Function),SetMarginMaskN
+cDirectSCI,Global (Sub/Function),SetMarginRight
+cDirectSCI,Global (Sub/Function),SetMarginSensitiveN
+cDirectSCI,Global (Sub/Function),SetModEventMask
+cDirectSCI,Global (Sub/Function),SetMouseDownCaptures
+cDirectSCI,Global (Sub/Function),SetMouseDwellTime
+cDirectSCI,Global (Sub/Function),SetPasteConvertEndings
+cDirectSCI,Global (Sub/Function),SetPrintColourMode
+cDirectSCI,Global (Sub/Function),SetPrintMagnification
+cDirectSCI,Global (Sub/Function),SetPrintWrapMode
+cDirectSCI,Global (Sub/Function),SetScrollWidth
+cDirectSCI,Global (Sub/Function),SetSearchFlags
+cDirectSCI,Global (Sub/Function),SetSelectionMode
+cDirectSCI,Global (Sub/Function),SetStatus
+cDirectSCI,Global (Sub/Function),SetStyling
+cDirectSCI,Global (Sub/Function),SetStylingEx
+cDirectSCI,Global (Sub/Function),SetTargetEnd
+cDirectSCI,Global (Sub/Function),SetTargetStart
+cDirectSCI,Global (Sub/Function),SetTwoPhaseDraw
+cDirectSCI,Global (Sub/Function),SetUndoCollection
+cDirectSCI,Global (Sub/Function),SetUsePalette
+cDirectSCI,Global (Sub/Function),SetVisiblePolicy
+cDirectSCI,Global (Sub/Function),SetWhitespaceBack
+cDirectSCI,Global (Sub/Function),SetWhitespaceChars
+cDirectSCI,Global (Sub/Function),SetWhitespaceFore
+cDirectSCI,Global (Sub/Function),SetWordChars
+cDirectSCI,Global (Sub/Function),SetWrapStartIndent
+cDirectSCI,Global (Sub/Function),SetWrapVisualFlags
+cDirectSCI,Global (Sub/Function),SetWrapVisualFlagsLocation
+cDirectSCI,Global (Sub/Function),SetXCaretPolicy
+cDirectSCI,Global (Sub/Function),SetXOffset
+cDirectSCI,Global (Sub/Function),SetYCaretPolicy
+cDirectSCI,Global (Sub/Function),SetZoom
+cDirectSCI,Global (Sub/Function),ShowLines
+cDirectSCI,Global (Sub/Function),StartRecord
+cDirectSCI,Global (Sub/Function),StartStyling
+cDirectSCI,Global (Sub/Function),StopRecord
+cDirectSCI,Global (Sub/Function),StutteredPageDown
+cDirectSCI,Global (Sub/Function),StutteredPageDownExtend
+cDirectSCI,Global (Sub/Function),StutteredPageUp
+cDirectSCI,Global (Sub/Function),StutteredPageUpExtend
+cDirectSCI,Global (Sub/Function),StyleResetDefault
+cDirectSCI,Global (Sub/Function),StyleSetCase
+cDirectSCI,Global (Sub/Function),StyleSetChangeable
+cDirectSCI,Global (Sub/Function),StyleSetCharacterSet
+cDirectSCI,Global (Sub/Function),StyleSetHotSpot
+cDirectSCI,Global (Sub/Function),TargetAsUTF8
+cDirectSCI,Global (Sub/Function),TargetFromSelection
+cDirectSCI,Global (Sub/Function),ToggleCaretSticky
+cDirectSCI,Global (Sub/Function),ToggleFold
+cDirectSCI,Global (Sub/Function),UpperCase
+cDirectSCI,Global (Sub/Function),UserListShow
+cDirectSCI,Global (Sub/Function),VCHome
+cDirectSCI,Global (Sub/Function),VCHomeExtend
+cDirectSCI,Global (Sub/Function),VCHomeRectExtend
+cDirectSCI,Global (Sub/Function),VCHomeWrap
+cDirectSCI,Global (Sub/Function),VCHomeWrapExtend
+cDirectSCI,Global (Sub/Function),VisibleFromDocLine
+cDirectSCI,Global (Sub/Function),WordEndPosition
+cDirectSCI,Global (Sub/Function),WordLeft
+cDirectSCI,Global (Sub/Function),WordLeftEnd
+cDirectSCI,Global (Sub/Function),WordLeftEndExtend
+cDirectSCI,Global (Sub/Function),WordLeftExtend
+cDirectSCI,Global (Sub/Function),WordPartLeft
+cDirectSCI,Global (Sub/Function),WordPartLeftExtend
+cDirectSCI,Global (Sub/Function),WordPartRight
+cDirectSCI,Global (Sub/Function),WordPartRightExtend
+cDirectSCI,Global (Sub/Function),WordRight
+cDirectSCI,Global (Sub/Function),WordRightEnd
+cDirectSCI,Global (Sub/Function),WordRightEndExtend
+cDirectSCI,Global (Sub/Function),WordRightExtend
+cDirectSCI,Global (Sub/Function),WordStartPosition
+cDirectSCI,Global (Sub/Function),WrapCount
+cDirectSCI,Global (Sub/Function),ZoomIn
+cDirectSCI,Global (Sub/Function),ZoomOut
+iSubclass,Global (Sub/Function),WndProc
+modComboAutoComplete,Global (Sub/Function),ComboDropdown
+modComboAutoComplete,Global (Sub/Function),ComboDropWidth
+modComboAutoComplete,Global (Sub/Function),ComboRetract

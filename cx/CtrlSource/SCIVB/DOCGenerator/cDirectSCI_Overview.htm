@@ -1,0 +1,533 @@
+<HTML>
+<HEAD>
+<style>
+.ItemSelected {color:black; background-color:#b0b0b0;cursor:'default'}
+.ItemUnSelected {color:white; background-color:#c0c0c0;cursor:'default'}
+
+</style>
+<STYLE>
+Body {
+BGCOLOR: #FFFFFF;
+Fore-Color: #000000;
+Font-Family: Verdana;
+Font-Size: 9pt;
+}
+
+Table {
+Font-Family: Verdana;
+Font-Size: 8pt;
+}
+
+A:LINK {
+Color: #4A58BE;
+text-Decoration: none;
+font-weight: Bold;
+}
+
+A:Active {
+Color: #4A58BE;
+text-Decoration: none;
+font-weight: Bold;
+}
+
+A:Visted {
+Color: #4A58BE;
+text-Decoration: none;
+font-weight: Bold;
+}
+
+A:HOVER {
+Color: #7E0000;
+text-Decoration: none;
+font-weight: Bold;
+}</STYLE>
+<TITLE>cDirectSCI Module</TITLE>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" rightmargin="0">
+<table border="0" cellpadding="6" cellspacing="0" bgcolor="#D9DAFF" width="100%">
+<TR>
+<TD>
+<b>cDirectSCI Object</b>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="10" cellspacing="0">
+<TR><TD>
+<P>
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:Consts">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#808080,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:Methods">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Item1" VALUE="AddRefDocument;cDirectSCI_AddRefDocument_Method.htm">
+<PARAM NAME="Item2" VALUE="AddStyledText;cDirectSCI_AddStyledText_Method.htm">
+<PARAM NAME="Item3" VALUE="AddText;cDirectSCI_AddText_Method.htm">
+<PARAM NAME="Item4" VALUE="Allocate;cDirectSCI_Allocate_Method.htm">
+<PARAM NAME="Item5" VALUE="AppendText;cDirectSCI_AppendText_Method.htm">
+<PARAM NAME="Item6" VALUE="AssignCmdKey;cDirectSCI_AssignCmdKey_Method.htm">
+<PARAM NAME="Item7" VALUE="AutoCActive;cDirectSCI_AutoCActive_Method.htm">
+<PARAM NAME="Item8" VALUE="AutoCCancel;cDirectSCI_AutoCCancel_Method.htm">
+<PARAM NAME="Item9" VALUE="AutoCComplete;cDirectSCI_AutoCComplete_Method.htm">
+<PARAM NAME="Item10" VALUE="AutoCGetAutoHide;cDirectSCI_AutoCGetAutoHide_Method.htm">
+<PARAM NAME="Item11" VALUE="AutoCGetCancelAtStart;cDirectSCI_AutoCGetCancelAtStart_Method.htm">
+<PARAM NAME="Item12" VALUE="AutoCGetChooseSingle;cDirectSCI_AutoCGetChooseSingle_Method.htm">
+<PARAM NAME="Item13" VALUE="AutoCGetCurrent;cDirectSCI_AutoCGetCurrent_Method.htm">
+<PARAM NAME="Item14" VALUE="AutoCGetDropRestOfWord;cDirectSCI_AutoCGetDropRestOfWord_Method.htm">
+<PARAM NAME="Item15" VALUE="AutoCGetIgnoreCase;cDirectSCI_AutoCGetIgnoreCase_Method.htm">
+<PARAM NAME="Item16" VALUE="AutoCGetMaxHeight;cDirectSCI_AutoCGetMaxHeight_Method.htm">
+<PARAM NAME="Item17" VALUE="AutoCGetMaxWidth;cDirectSCI_AutoCGetMaxWidth_Method.htm">
+<PARAM NAME="Item18" VALUE="AutoCGetSeparator;cDirectSCI_AutoCGetSeparator_Method.htm">
+<PARAM NAME="Item19" VALUE="AutoCGetTypeSeparator;cDirectSCI_AutoCGetTypeSeparator_Method.htm">
+<PARAM NAME="Item20" VALUE="AutoCSelect;cDirectSCI_AutoCSelect_Method.htm">
+<PARAM NAME="Item21" VALUE="AutoCSetAutoHide;cDirectSCI_AutoCSetAutoHide_Method.htm">
+<PARAM NAME="Item22" VALUE="AutoCSetCancelAtStart;cDirectSCI_AutoCSetCancelAtStart_Method.htm">
+<PARAM NAME="Item23" VALUE="AutoCSetChooseSingle;cDirectSCI_AutoCSetChooseSingle_Method.htm">
+<PARAM NAME="Item24" VALUE="AutoCSetDropRestOfWord;cDirectSCI_AutoCSetDropRestOfWord_Method.htm">
+<PARAM NAME="Item25" VALUE="AutoCSetFillUps;cDirectSCI_AutoCSetFillUps_Method.htm">
+<PARAM NAME="Item26" VALUE="AutoCSetIgnoreCase;cDirectSCI_AutoCSetIgnoreCase_Method.htm">
+<PARAM NAME="Item27" VALUE="AutoCSetMaxHeight;cDirectSCI_AutoCSetMaxHeight_Method.htm">
+<PARAM NAME="Item28" VALUE="AutoCSetMaxWidth;cDirectSCI_AutoCSetMaxWidth_Method.htm">
+<PARAM NAME="Item29" VALUE="AutoCSetSeparator;cDirectSCI_AutoCSetSeparator_Method.htm">
+<PARAM NAME="Item30" VALUE="AutoCSetTypeSeparator;cDirectSCI_AutoCSetTypeSeparator_Method.htm">
+<PARAM NAME="Item31" VALUE="AutoCShow;cDirectSCI_AutoCShow_Method.htm">
+<PARAM NAME="Item32" VALUE="AutoCStops;cDirectSCI_AutoCStops_Method.htm">
+<PARAM NAME="Item33" VALUE="BackTab;cDirectSCI_BackTab_Method.htm">
+<PARAM NAME="Item34" VALUE="BeginUndoAction;cDirectSCI_BeginUndoAction_Method.htm">
+<PARAM NAME="Item35" VALUE="BraceBadLight;cDirectSCI_BraceBadLight_Method.htm">
+<PARAM NAME="Item36" VALUE="BraceHighlight;cDirectSCI_BraceHighlight_Method.htm">
+<PARAM NAME="Item37" VALUE="CallTipActive;cDirectSCI_CallTipActive_Method.htm">
+<PARAM NAME="Item38" VALUE="CallTipCancel;cDirectSCI_CallTipCancel_Method.htm">
+<PARAM NAME="Item39" VALUE="CallTipSetBack;cDirectSCI_CallTipSetBack_Method.htm">
+<PARAM NAME="Item40" VALUE="CallTipSetForeHlt;cDirectSCI_CallTipSetForeHlt_Method.htm">
+<PARAM NAME="Item41" VALUE="CallTipSetFore;cDirectSCI_CallTipSetFore_Method.htm">
+<PARAM NAME="Item42" VALUE="CallTipSetHlt;cDirectSCI_CallTipSetHlt_Method.htm">
+<PARAM NAME="Item43" VALUE="CallTipShow;cDirectSCI_CallTipShow_Method.htm">
+<PARAM NAME="Item44" VALUE="Cancel;cDirectSCI_Cancel_Method.htm">
+<PARAM NAME="Item45" VALUE="CanPaste;cDirectSCI_CanPaste_Method.htm">
+<PARAM NAME="Item46" VALUE="CanRedo;cDirectSCI_CanRedo_Method.htm">
+<PARAM NAME="Item47" VALUE="CanUndo;cDirectSCI_CanUndo_Method.htm">
+<PARAM NAME="Item48" VALUE="CharAtPos;cDirectSCI_CharAtPos_Method.htm">
+<PARAM NAME="Item49" VALUE="CharLeftExtend;cDirectSCI_CharLeftExtend_Method.htm">
+<PARAM NAME="Item50" VALUE="CharLeftRectExtend;cDirectSCI_CharLeftRectExtend_Method.htm">
+<PARAM NAME="Item51" VALUE="CharLeft;cDirectSCI_CharLeft_Method.htm">
+<PARAM NAME="Item52" VALUE="CharRightExtend;cDirectSCI_CharRightExtend_Method.htm">
+<PARAM NAME="Item53" VALUE="CharRightRectExtend;cDirectSCI_CharRightRectExtend_Method.htm">
+<PARAM NAME="Item54" VALUE="CharRight;cDirectSCI_CharRight_Method.htm">
+<PARAM NAME="Item55" VALUE="ChooseCaretX;cDirectSCI_ChooseCaretX_Method.htm">
+<PARAM NAME="Item56" VALUE="ClearAllCmdKeys;cDirectSCI_ClearAllCmdKeys_Method.htm">
+<PARAM NAME="Item57" VALUE="ClearAll;cDirectSCI_ClearAll_Method.htm">
+<PARAM NAME="Item58" VALUE="ClearCmdKey;cDirectSCI_ClearCmdKey_Method.htm">
+<PARAM NAME="Item59" VALUE="ClearDocumentStyle;cDirectSCI_ClearDocumentStyle_Method.htm">
+<PARAM NAME="Item60" VALUE="ClearRegisteredImages;cDirectSCI_ClearRegisteredImages_Method.htm">
+<PARAM NAME="Item61" VALUE="Clear;cDirectSCI_Clear_Method.htm">
+<PARAM NAME="Item62" VALUE="Colourise;cDirectSCI_Colourise_Method.htm">
+<PARAM NAME="Item63" VALUE="ConvertEOLs;cDirectSCI_ConvertEOLs_Method.htm">
+<PARAM NAME="Item64" VALUE="CopyRange;cDirectSCI_CopyRange_Method.htm">
+<PARAM NAME="Item65" VALUE="CopyText;cDirectSCI_CopyText_Method.htm">
+<PARAM NAME="Item66" VALUE="Copy;cDirectSCI_Copy_Method.htm">
+<PARAM NAME="Item67" VALUE="CreateDocument;cDirectSCI_CreateDocument_Method.htm">
+<PARAM NAME="Item68" VALUE="Cut;cDirectSCI_Cut_Method.htm">
+<PARAM NAME="Item69" VALUE="DeleteBackNotLine;cDirectSCI_DeleteBackNotLine_Method.htm">
+<PARAM NAME="Item70" VALUE="DeleteBack;cDirectSCI_DeleteBack_Method.htm">
+<PARAM NAME="Item71" VALUE="DelLineLeft;cDirectSCI_DelLineLeft_Method.htm">
+<PARAM NAME="Item72" VALUE="DelLineRight;cDirectSCI_DelLineRight_Method.htm">
+<PARAM NAME="Item73" VALUE="DelWordLeft;cDirectSCI_DelWordLeft_Method.htm">
+<PARAM NAME="Item74" VALUE="DelWordRight;cDirectSCI_DelWordRight_Method.htm">
+<PARAM NAME="Item75" VALUE="DocLineFromVisible;cDirectSCI_DocLineFromVisible_Method.htm">
+<PARAM NAME="Item76" VALUE="DocumentEndExtend;cDirectSCI_DocumentEndExtend_Method.htm">
+<PARAM NAME="Item77" VALUE="DocumentEnd;cDirectSCI_DocumentEnd_Method.htm">
+<PARAM NAME="Item78" VALUE="DocumentStartExtend;cDirectSCI_DocumentStartExtend_Method.htm">
+<PARAM NAME="Item79" VALUE="DocumentStart;cDirectSCI_DocumentStart_Method.htm">
+<PARAM NAME="Item80" VALUE="EditToggleOvertype;cDirectSCI_EditToggleOvertype_Method.htm">
+<PARAM NAME="Item81" VALUE="EmptyUndoBuffer;cDirectSCI_EmptyUndoBuffer_Method.htm">
+<PARAM NAME="Item82" VALUE="EncodedFromUTF8;cDirectSCI_EncodedFromUTF8_Method.htm">
+<PARAM NAME="Item83" VALUE="EndUndoAction;cDirectSCI_EndUndoAction_Method.htm">
+<PARAM NAME="Item84" VALUE="EnsureVisibleEnforcePolicy;cDirectSCI_EnsureVisibleEnforcePolicy_Method.htm">
+<PARAM NAME="Item85" VALUE="EnsureVisible;cDirectSCI_EnsureVisible_Method.htm">
+<PARAM NAME="Item86" VALUE="FindColumn;cDirectSCI_FindColumn_Method.htm">
+<PARAM NAME="Item87" VALUE="FormFeed;cDirectSCI_FormFeed_Method.htm">
+<PARAM NAME="Item88" VALUE="GetBackSpaceUnIndents;cDirectSCI_GetBackSpaceUnIndents_Method.htm">
+<PARAM NAME="Item89" VALUE="GetBufferedDraw;cDirectSCI_GetBufferedDraw_Method.htm">
+<PARAM NAME="Item90" VALUE="GetCaretLineVisible;cDirectSCI_GetCaretLineVisible_Method.htm">
+<PARAM NAME="Item91" VALUE="GetCaretPeriod;cDirectSCI_GetCaretPeriod_Method.htm">
+<PARAM NAME="Item92" VALUE="GetCaretSticky;cDirectSCI_GetCaretSticky_Method.htm">
+<PARAM NAME="Item93" VALUE="GetCaretWidth;cDirectSCI_GetCaretWidth_Method.htm">
+<PARAM NAME="Item94" VALUE="GetCharAt;cDirectSCI_GetCharAt_Method.htm">
+<PARAM NAME="Item95" VALUE="GetCodePage;cDirectSCI_GetCodePage_Method.htm">
+<PARAM NAME="Item96" VALUE="GetColumn;cDirectSCI_GetColumn_Method.htm">
+<PARAM NAME="Item97" VALUE="GetControlCharSymbol;cDirectSCI_GetControlCharSymbol_Method.htm">
+<PARAM NAME="Item98" VALUE="GetCurLine;cDirectSCI_GetCurLine_Method.htm">
+<PARAM NAME="Item99" VALUE="GetCurPos;cDirectSCI_GetCurPos_Method.htm">
+<PARAM NAME="Item100" VALUE="GetCursor;cDirectSCI_GetCursor_Method.htm">
+<PARAM NAME="Item101" VALUE="GetDirectFunction;cDirectSCI_GetDirectFunction_Method.htm">
+<PARAM NAME="Item102" VALUE="GetDirectPointer;cDirectSCI_GetDirectPointer_Method.htm">
+<PARAM NAME="Item103" VALUE="GetDocPointer;cDirectSCI_GetDocPointer_Method.htm">
+<PARAM NAME="Item104" VALUE="GetEdgeColumn;cDirectSCI_GetEdgeColumn_Method.htm">
+<PARAM NAME="Item105" VALUE="GetEdgeMode;cDirectSCI_GetEdgeMode_Method.htm">
+<PARAM NAME="Item106" VALUE="GetEndAtLastLine;cDirectSCI_GetEndAtLastLine_Method.htm">
+<PARAM NAME="Item107" VALUE="GetEOLMode;cDirectSCI_GetEOLMode_Method.htm">
+<PARAM NAME="Item108" VALUE="GetFirstVisibleLine;cDirectSCI_GetFirstVisibleLine_Method.htm">
+<PARAM NAME="Item109" VALUE="GetFocus;cDirectSCI_GetFocus_Method.htm">
+<PARAM NAME="Item110" VALUE="GetFoldExpanded;cDirectSCI_GetFoldExpanded_Method.htm">
+<PARAM NAME="Item111" VALUE="GetFoldLevel;cDirectSCI_GetFoldLevel_Method.htm">
+<PARAM NAME="Item112" VALUE="GetFoldParent;cDirectSCI_GetFoldParent_Method.htm">
+<PARAM NAME="Item113" VALUE="GetHighlightGuide;cDirectSCI_GetHighlightGuide_Method.htm">
+<PARAM NAME="Item114" VALUE="GetHScrollBar;cDirectSCI_GetHScrollBar_Method.htm">
+<PARAM NAME="Item115" VALUE="GetIndentationGuides;cDirectSCI_GetIndentationGuides_Method.htm">
+<PARAM NAME="Item116" VALUE="GetIndent;cDirectSCI_GetIndent_Method.htm">
+<PARAM NAME="Item117" VALUE="GetLastChild;cDirectSCI_GetLastChild_Method.htm">
+<PARAM NAME="Item118" VALUE="GetLayoutCache;cDirectSCI_GetLayoutCache_Method.htm">
+<PARAM NAME="Item119" VALUE="GetLength;cDirectSCI_GetLength_Method.htm">
+<PARAM NAME="Item120" VALUE="GetLexer;cDirectSCI_GetLexer_Method.htm">
+<PARAM NAME="Item121" VALUE="GetLineCount;cDirectSCI_GetLineCount_Method.htm">
+<PARAM NAME="Item122" VALUE="GetLineEndPosition;cDirectSCI_GetLineEndPosition_Method.htm">
+<PARAM NAME="Item123" VALUE="GetLineIndentation;cDirectSCI_GetLineIndentation_Method.htm">
+<PARAM NAME="Item124" VALUE="GetLineState;cDirectSCI_GetLineState_Method.htm">
+<PARAM NAME="Item125" VALUE="GetLineVisible;cDirectSCI_GetLineVisible_Method.htm">
+<PARAM NAME="Item126" VALUE="GetLine;cDirectSCI_GetLine_Method.htm">
+<PARAM NAME="Item127" VALUE="GetMarginLeft;cDirectSCI_GetMarginLeft_Method.htm">
+<PARAM NAME="Item128" VALUE="GetMarginMaskN;cDirectSCI_GetMarginMaskN_Method.htm">
+<PARAM NAME="Item129" VALUE="GetMarginRight;cDirectSCI_GetMarginRight_Method.htm">
+<PARAM NAME="Item130" VALUE="GetMarginSensitiveN;cDirectSCI_GetMarginSensitiveN_Method.htm">
+<PARAM NAME="Item131" VALUE="GetMarginTypeN;cDirectSCI_GetMarginTypeN_Method.htm">
+<PARAM NAME="Item132" VALUE="GetMarginWidthN;cDirectSCI_GetMarginWidthN_Method.htm">
+<PARAM NAME="Item133" VALUE="GetMaxLineState;cDirectSCI_GetMaxLineState_Method.htm">
+<PARAM NAME="Item134" VALUE="GetModEventMask;cDirectSCI_GetModEventMask_Method.htm">
+<PARAM NAME="Item135" VALUE="GetModify;cDirectSCI_GetModify_Method.htm">
+<PARAM NAME="Item136" VALUE="GetMouseDownCaptures;cDirectSCI_GetMouseDownCaptures_Method.htm">
+<PARAM NAME="Item137" VALUE="GetMouseDwellTime;cDirectSCI_GetMouseDwellTime_Method.htm">
+<PARAM NAME="Item138" VALUE="GetOvertype;cDirectSCI_GetOvertype_Method.htm">
+<PARAM NAME="Item139" VALUE="GetPasteConvertEndings;cDirectSCI_GetPasteConvertEndings_Method.htm">
+<PARAM NAME="Item140" VALUE="GetPrintColourMode;cDirectSCI_GetPrintColourMode_Method.htm">
+<PARAM NAME="Item141" VALUE="GetPrintMagnification;cDirectSCI_GetPrintMagnification_Method.htm">
+<PARAM NAME="Item142" VALUE="GetPrintWrapMode;cDirectSCI_GetPrintWrapMode_Method.htm">
+<PARAM NAME="Item143" VALUE="GetPropertyExpanded;cDirectSCI_GetPropertyExpanded_Method.htm">
+<PARAM NAME="Item144" VALUE="GetPropertyInt;cDirectSCI_GetPropertyInt_Method.htm">
+<PARAM NAME="Item145" VALUE="GetProperty;cDirectSCI_GetProperty_Method.htm">
+<PARAM NAME="Item146" VALUE="GetReadOnly;cDirectSCI_GetReadOnly_Method.htm">
+<PARAM NAME="Item147" VALUE="GetScrollWidth;cDirectSCI_GetScrollWidth_Method.htm">
+<PARAM NAME="Item148" VALUE="GetSearchFlags;cDirectSCI_GetSearchFlags_Method.htm">
+<PARAM NAME="Item149" VALUE="GetSelectionEnd;cDirectSCI_GetSelectionEnd_Method.htm">
+<PARAM NAME="Item150" VALUE="GetSelectionLength;cDirectSCI_GetSelectionLength_Method.htm">
+<PARAM NAME="Item151" VALUE="GetSelectionMode;cDirectSCI_GetSelectionMode_Method.htm">
+<PARAM NAME="Item152" VALUE="GetSelectionStart;cDirectSCI_GetSelectionStart_Method.htm">
+<PARAM NAME="Item153" VALUE="GetSelText;cDirectSCI_GetSelText_Method.htm">
+<PARAM NAME="Item154" VALUE="GetStatus;cDirectSCI_GetStatus_Method.htm">
+<PARAM NAME="Item155" VALUE="GetStyleAt;cDirectSCI_GetStyleAt_Method.htm">
+<PARAM NAME="Item156" VALUE="GetStyleBitsNeeded;cDirectSCI_GetStyleBitsNeeded_Method.htm">
+<PARAM NAME="Item157" VALUE="GetStyleBits;cDirectSCI_GetStyleBits_Method.htm">
+<PARAM NAME="Item158" VALUE="GetStyledText;cDirectSCI_GetStyledText_Method.htm">
+<PARAM NAME="Item159" VALUE="GetTabIndents;cDirectSCI_GetTabIndents_Method.htm">
+<PARAM NAME="Item160" VALUE="GetTabWidth;cDirectSCI_GetTabWidth_Method.htm">
+<PARAM NAME="Item161" VALUE="GetTextLength;cDirectSCI_GetTextLength_Method.htm">
+<PARAM NAME="Item162" VALUE="GetTextRange;cDirectSCI_GetTextRange_Method.htm">
+<PARAM NAME="Item163" VALUE="GetText;cDirectSCI_GetText_Method.htm">
+<PARAM NAME="Item164" VALUE="GetTwoPhaseDraw;cDirectSCI_GetTwoPhaseDraw_Method.htm">
+<PARAM NAME="Item165" VALUE="GetUndoCollection;cDirectSCI_GetUndoCollection_Method.htm">
+<PARAM NAME="Item166" VALUE="GetUsePalette;cDirectSCI_GetUsePalette_Method.htm">
+<PARAM NAME="Item167" VALUE="GetUseTabs;cDirectSCI_GetUseTabs_Method.htm">
+<PARAM NAME="Item168" VALUE="GetViewEOL;cDirectSCI_GetViewEOL_Method.htm">
+<PARAM NAME="Item169" VALUE="GetViewWS;cDirectSCI_GetViewWS_Method.htm">
+<PARAM NAME="Item170" VALUE="GetVScrollBar;cDirectSCI_GetVScrollBar_Method.htm">
+<PARAM NAME="Item171" VALUE="GetWrapMode;cDirectSCI_GetWrapMode_Method.htm">
+<PARAM NAME="Item172" VALUE="GetWrapStartIndent;cDirectSCI_GetWrapStartIndent_Method.htm">
+<PARAM NAME="Item173" VALUE="GetWrapVisualFlagsLocation;cDirectSCI_GetWrapVisualFlagsLocation_Method.htm">
+<PARAM NAME="Item174" VALUE="GetWrapVisualFlags;cDirectSCI_GetWrapVisualFlags_Method.htm">
+<PARAM NAME="Item175" VALUE="GetXOffset;cDirectSCI_GetXOffset_Method.htm">
+<PARAM NAME="Item176" VALUE="GetZoom;cDirectSCI_GetZoom_Method.htm">
+<PARAM NAME="Item177" VALUE="GotoLine;cDirectSCI_GotoLine_Method.htm">
+<PARAM NAME="Item178" VALUE="GotoPos;cDirectSCI_GotoPos_Method.htm">
+<PARAM NAME="Item179" VALUE="GrabFocus;cDirectSCI_GrabFocus_Method.htm">
+<PARAM NAME="Item180" VALUE="HideLines;cDirectSCI_HideLines_Method.htm">
+<PARAM NAME="Item181" VALUE="HideSelection;cDirectSCI_HideSelection_Method.htm">
+<PARAM NAME="Item182" VALUE="HomeDisplayExtend;cDirectSCI_HomeDisplayExtend_Method.htm">
+<PARAM NAME="Item183" VALUE="HomeDisplay;cDirectSCI_HomeDisplay_Method.htm">
+<PARAM NAME="Item184" VALUE="HomeExtend;cDirectSCI_HomeExtend_Method.htm">
+<PARAM NAME="Item185" VALUE="HomeRectExtend;cDirectSCI_HomeRectExtend_Method.htm">
+<PARAM NAME="Item186" VALUE="HomeWrapExtend;cDirectSCI_HomeWrapExtend_Method.htm">
+<PARAM NAME="Item187" VALUE="HomeWrap;cDirectSCI_HomeWrap_Method.htm">
+<PARAM NAME="Item188" VALUE="Home;cDirectSCI_Home_Method.htm">
+<PARAM NAME="Item189" VALUE="Indent;cDirectSCI_Indent_Method.htm">
+<PARAM NAME="Item190" VALUE="IndicGetStyle;cDirectSCI_IndicGetStyle_Method.htm">
+<PARAM NAME="Item191" VALUE="IndicSetFore;cDirectSCI_IndicSetFore_Method.htm">
+<PARAM NAME="Item192" VALUE="IndicStyleSet;cDirectSCI_IndicStyleSet_Method.htm">
+<PARAM NAME="Item193" VALUE="InsertText;cDirectSCI_InsertText_Method.htm">
+<PARAM NAME="Item194" VALUE="LineCopy;cDirectSCI_LineCopy_Method.htm">
+<PARAM NAME="Item195" VALUE="LineCut;cDirectSCI_LineCut_Method.htm">
+<PARAM NAME="Item196" VALUE="LineDelete;cDirectSCI_LineDelete_Method.htm">
+<PARAM NAME="Item197" VALUE="LineDownExtend;cDirectSCI_LineDownExtend_Method.htm">
+<PARAM NAME="Item198" VALUE="LineDownRectExtend;cDirectSCI_LineDownRectExtend_Method.htm">
+<PARAM NAME="Item199" VALUE="LineDown;cDirectSCI_LineDown_Method.htm">
+<PARAM NAME="Item200" VALUE="LineDuplicate;cDirectSCI_LineDuplicate_Method.htm">
+<PARAM NAME="Item201" VALUE="LineEndDisplayExtend;cDirectSCI_LineEndDisplayExtend_Method.htm">
+<PARAM NAME="Item202" VALUE="LineEndDisplay;cDirectSCI_LineEndDisplay_Method.htm">
+<PARAM NAME="Item203" VALUE="LineEndExtend;cDirectSCI_LineEndExtend_Method.htm">
+<PARAM NAME="Item204" VALUE="LineEndRectExtend;cDirectSCI_LineEndRectExtend_Method.htm">
+<PARAM NAME="Item205" VALUE="LineEndWrapExtend;cDirectSCI_LineEndWrapExtend_Method.htm">
+<PARAM NAME="Item206" VALUE="LineEndWrap;cDirectSCI_LineEndWrap_Method.htm">
+<PARAM NAME="Item207" VALUE="LineEnd;cDirectSCI_LineEnd_Method.htm">
+<PARAM NAME="Item208" VALUE="LineFromPosition;cDirectSCI_LineFromPosition_Method.htm">
+<PARAM NAME="Item209" VALUE="LineLength;cDirectSCI_LineLength_Method.htm">
+<PARAM NAME="Item210" VALUE="LineScrollDown;cDirectSCI_LineScrollDown_Method.htm">
+<PARAM NAME="Item211" VALUE="LineScrollUp;cDirectSCI_LineScrollUp_Method.htm">
+<PARAM NAME="Item212" VALUE="LineScroll;cDirectSCI_LineScroll_Method.htm">
+<PARAM NAME="Item213" VALUE="LinesJoin;cDirectSCI_LinesJoin_Method.htm">
+<PARAM NAME="Item214" VALUE="LinesOnScreen;cDirectSCI_LinesOnScreen_Method.htm">
+<PARAM NAME="Item215" VALUE="LinesSplit;cDirectSCI_LinesSplit_Method.htm">
+<PARAM NAME="Item216" VALUE="LineTranspose;cDirectSCI_LineTranspose_Method.htm">
+<PARAM NAME="Item217" VALUE="LineUpExtend;cDirectSCI_LineUpExtend_Method.htm">
+<PARAM NAME="Item218" VALUE="LineUpRectExtend;cDirectSCI_LineUpRectExtend_Method.htm">
+<PARAM NAME="Item219" VALUE="LineUp;cDirectSCI_LineUp_Method.htm">
+<PARAM NAME="Item220" VALUE="LoadLexerLibrary;cDirectSCI_LoadLexerLibrary_Method.htm">
+<PARAM NAME="Item221" VALUE="LowerCase;cDirectSCI_LowerCase_Method.htm">
+<PARAM NAME="Item222" VALUE="MarkerAddSet;cDirectSCI_MarkerAddSet_Method.htm">
+<PARAM NAME="Item223" VALUE="MarkerAdd;cDirectSCI_MarkerAdd_Method.htm">
+<PARAM NAME="Item224" VALUE="MarkerDefinePixmap;cDirectSCI_MarkerDefinePixmap_Method.htm">
+<PARAM NAME="Item225" VALUE="MarkerDefine;cDirectSCI_MarkerDefine_Method.htm">
+<PARAM NAME="Item226" VALUE="MarkerDeleteAll;cDirectSCI_MarkerDeleteAll_Method.htm">
+<PARAM NAME="Item227" VALUE="MarkerDeleteHandle;cDirectSCI_MarkerDeleteHandle_Method.htm">
+<PARAM NAME="Item228" VALUE="MarkerDelete;cDirectSCI_MarkerDelete_Method.htm">
+<PARAM NAME="Item229" VALUE="MarkerGet;cDirectSCI_MarkerGet_Method.htm">
+<PARAM NAME="Item230" VALUE="MarkerLineFromHandle;cDirectSCI_MarkerLineFromHandle_Method.htm">
+<PARAM NAME="Item231" VALUE="MarkerNext;cDirectSCI_MarkerNext_Method.htm">
+<PARAM NAME="Item232" VALUE="MarkerPrevious;cDirectSCI_MarkerPrevious_Method.htm">
+<PARAM NAME="Item233" VALUE="MarkerSetBack;cDirectSCI_MarkerSetBack_Method.htm">
+<PARAM NAME="Item234" VALUE="MarkerSetFore;cDirectSCI_MarkerSetFore_Method.htm">
+<PARAM NAME="Item235" VALUE="MoveCaretInsideView;cDirectSCI_MoveCaretInsideView_Method.htm">
+<PARAM NAME="Item236" VALUE="NewLine;cDirectSCI_NewLine_Method.htm">
+<PARAM NAME="Item237" VALUE="Nulls;cDirectSCI_Nulls_Method.htm">
+<PARAM NAME="Item238" VALUE="PageDownExtend;cDirectSCI_PageDownExtend_Method.htm">
+<PARAM NAME="Item239" VALUE="PageDownRectExtend;cDirectSCI_PageDownRectExtend_Method.htm">
+<PARAM NAME="Item240" VALUE="PageDown;cDirectSCI_PageDown_Method.htm">
+<PARAM NAME="Item241" VALUE="PageUpExtend;cDirectSCI_PageUpExtend_Method.htm">
+<PARAM NAME="Item242" VALUE="PageUpRectExtend;cDirectSCI_PageUpRectExtend_Method.htm">
+<PARAM NAME="Item243" VALUE="PageUp;cDirectSCI_PageUp_Method.htm">
+<PARAM NAME="Item244" VALUE="ParaDownExtend;cDirectSCI_ParaDownExtend_Method.htm">
+<PARAM NAME="Item245" VALUE="ParaDown;cDirectSCI_ParaDown_Method.htm">
+<PARAM NAME="Item246" VALUE="ParaUpExtend;cDirectSCI_ParaUpExtend_Method.htm">
+<PARAM NAME="Item247" VALUE="ParaUp;cDirectSCI_ParaUp_Method.htm">
+<PARAM NAME="Item248" VALUE="Paste;cDirectSCI_Paste_Method.htm">
+<PARAM NAME="Item249" VALUE="PointXFromPosition;cDirectSCI_PointXFromPosition_Method.htm">
+<PARAM NAME="Item250" VALUE="PointYFromPosition;cDirectSCI_PointYFromPosition_Method.htm">
+<PARAM NAME="Item251" VALUE="Redo;cDirectSCI_Redo_Method.htm">
+<PARAM NAME="Item252" VALUE="RegisterImage;cDirectSCI_RegisterImage_Method.htm">
+<PARAM NAME="Item253" VALUE="ReleaseDocument;cDirectSCI_ReleaseDocument_Method.htm">
+<PARAM NAME="Item254" VALUE="ReplaceSel;cDirectSCI_ReplaceSel_Method.htm">
+<PARAM NAME="Item255" VALUE="ReplaceTargetRE;cDirectSCI_ReplaceTargetRE_Method.htm">
+<PARAM NAME="Item256" VALUE="ReplaceTarget;cDirectSCI_ReplaceTarget_Method.htm">
+<PARAM NAME="Item257" VALUE="ScrollCaret;cDirectSCI_ScrollCaret_Method.htm">
+<PARAM NAME="Item258" VALUE="SearchAnchor;cDirectSCI_SearchAnchor_Method.htm">
+<PARAM NAME="Item259" VALUE="SearchInTarget;cDirectSCI_SearchInTarget_Method.htm">
+<PARAM NAME="Item260" VALUE="SearchNext;cDirectSCI_SearchNext_Method.htm">
+<PARAM NAME="Item261" VALUE="SearchPrev;cDirectSCI_SearchPrev_Method.htm">
+<PARAM NAME="Item262" VALUE="SelectAll;cDirectSCI_SelectAll_Method.htm">
+<PARAM NAME="Item263" VALUE="SelectionDuplicate;cDirectSCI_SelectionDuplicate_Method.htm">
+<PARAM NAME="Item264" VALUE="SelectionIsRectangle;cDirectSCI_SelectionIsRectangle_Method.htm">
+<PARAM NAME="Item265" VALUE="SetAnchor;cDirectSCI_SetAnchor_Method.htm">
+<PARAM NAME="Item266" VALUE="SetBackSpaceUnIndents;cDirectSCI_SetBackSpaceUnIndents_Method.htm">
+<PARAM NAME="Item267" VALUE="SetBufferedDraw;cDirectSCI_SetBufferedDraw_Method.htm">
+<PARAM NAME="Item268" VALUE="SetCaretFore;cDirectSCI_SetCaretFore_Method.htm">
+<PARAM NAME="Item269" VALUE="SetCaretLineBack;cDirectSCI_SetCaretLineBack_Method.htm">
+<PARAM NAME="Item270" VALUE="SetCaretLineVisible;cDirectSCI_SetCaretLineVisible_Method.htm">
+<PARAM NAME="Item271" VALUE="SetCaretPeriod;cDirectSCI_SetCaretPeriod_Method.htm">
+<PARAM NAME="Item272" VALUE="SetCaretPolicy;cDirectSCI_SetCaretPolicy_Method.htm">
+<PARAM NAME="Item273" VALUE="SetCaretSticky;cDirectSCI_SetCaretSticky_Method.htm">
+<PARAM NAME="Item274" VALUE="SetCaretWidth;cDirectSCI_SetCaretWidth_Method.htm">
+<PARAM NAME="Item275" VALUE="SetCharsDefault;cDirectSCI_SetCharsDefault_Method.htm">
+<PARAM NAME="Item276" VALUE="SetCodePage;cDirectSCI_SetCodePage_Method.htm">
+<PARAM NAME="Item277" VALUE="SetControlCharSymbol;cDirectSCI_SetControlCharSymbol_Method.htm">
+<PARAM NAME="Item278" VALUE="SetCurrentPos;cDirectSCI_SetCurrentPos_Method.htm">
+<PARAM NAME="Item279" VALUE="SetCursor;cDirectSCI_SetCursor_Method.htm">
+<PARAM NAME="Item280" VALUE="SetDocPointer;cDirectSCI_SetDocPointer_Method.htm">
+<PARAM NAME="Item281" VALUE="SetEdgeColour;cDirectSCI_SetEdgeColour_Method.htm">
+<PARAM NAME="Item282" VALUE="SetEdgeColumn;cDirectSCI_SetEdgeColumn_Method.htm">
+<PARAM NAME="Item283" VALUE="SetEdgeMode;cDirectSCI_SetEdgeMode_Method.htm">
+<PARAM NAME="Item284" VALUE="SetEndAtLastLine;cDirectSCI_SetEndAtLastLine_Method.htm">
+<PARAM NAME="Item285" VALUE="SetEOLMode;cDirectSCI_SetEOLMode_Method.htm">
+<PARAM NAME="Item286" VALUE="SetFocus;cDirectSCI_SetFocus_Method.htm">
+<PARAM NAME="Item287" VALUE="SetFoldExpanded;cDirectSCI_SetFoldExpanded_Method.htm">
+<PARAM NAME="Item288" VALUE="SetFoldFlags;cDirectSCI_SetFoldFlags_Method.htm">
+<PARAM NAME="Item289" VALUE="SetFoldLevel;cDirectSCI_SetFoldLevel_Method.htm">
+<PARAM NAME="Item290" VALUE="SetFoldMarginColour;cDirectSCI_SetFoldMarginColour_Method.htm">
+<PARAM NAME="Item291" VALUE="SetFoldMarginHiColour;cDirectSCI_SetFoldMarginHiColour_Method.htm">
+<PARAM NAME="Item292" VALUE="SetHighlightGuide;cDirectSCI_SetHighlightGuide_Method.htm">
+<PARAM NAME="Item293" VALUE="SetHotspotActiveBack;cDirectSCI_SetHotspotActiveBack_Method.htm">
+<PARAM NAME="Item294" VALUE="SetHotspotActiveFore;cDirectSCI_SetHotspotActiveFore_Method.htm">
+<PARAM NAME="Item295" VALUE="SetHotspotActiveUnderline;cDirectSCI_SetHotspotActiveUnderline_Method.htm">
+<PARAM NAME="Item296" VALUE="SetHotspotSingleLine;cDirectSCI_SetHotspotSingleLine_Method.htm">
+<PARAM NAME="Item297" VALUE="SetHScrollBar;cDirectSCI_SetHScrollBar_Method.htm">
+<PARAM NAME="Item298" VALUE="SetIndentationGuides;cDirectSCI_SetIndentationGuides_Method.htm">
+<PARAM NAME="Item299" VALUE="SetIndent;cDirectSCI_SetIndent_Method.htm">
+<PARAM NAME="Item300" VALUE="SetKeyWords;cDirectSCI_SetKeyWords_Method.htm">
+<PARAM NAME="Item301" VALUE="SetLayoutCache;cDirectSCI_SetLayoutCache_Method.htm">
+<PARAM NAME="Item302" VALUE="SetLengthForEncode;cDirectSCI_SetLengthForEncode_Method.htm">
+<PARAM NAME="Item303" VALUE="SetLexerLanguage;cDirectSCI_SetLexerLanguage_Method.htm">
+<PARAM NAME="Item304" VALUE="SetLexer;cDirectSCI_SetLexer_Method.htm">
+<PARAM NAME="Item305" VALUE="SetLineIndentation;cDirectSCI_SetLineIndentation_Method.htm">
+<PARAM NAME="Item306" VALUE="SetLineState;cDirectSCI_SetLineState_Method.htm">
+<PARAM NAME="Item307" VALUE="SetMarginLeft;cDirectSCI_SetMarginLeft_Method.htm">
+<PARAM NAME="Item308" VALUE="SetMarginMaskN;cDirectSCI_SetMarginMaskN_Method.htm">
+<PARAM NAME="Item309" VALUE="SetMarginRight;cDirectSCI_SetMarginRight_Method.htm">
+<PARAM NAME="Item310" VALUE="SetMarginSensitiveN;cDirectSCI_SetMarginSensitiveN_Method.htm">
+<PARAM NAME="Item311" VALUE="SetMarginTypeN;cDirectSCI_SetMarginTypeN_Method.htm">
+<PARAM NAME="Item312" VALUE="SetMarginWidthN;cDirectSCI_SetMarginWidthN_Method.htm">
+<PARAM NAME="Item313" VALUE="SetModEventMask;cDirectSCI_SetModEventMask_Method.htm">
+<PARAM NAME="Item314" VALUE="SetMouseDownCaptures;cDirectSCI_SetMouseDownCaptures_Method.htm">
+<PARAM NAME="Item315" VALUE="SetMouseDwellTime;cDirectSCI_SetMouseDwellTime_Method.htm">
+<PARAM NAME="Item316" VALUE="SetOvertype;cDirectSCI_SetOvertype_Method.htm">
+<PARAM NAME="Item317" VALUE="SetPasteConvertEndings;cDirectSCI_SetPasteConvertEndings_Method.htm">
+<PARAM NAME="Item318" VALUE="SetPrintColourMode;cDirectSCI_SetPrintColourMode_Method.htm">
+<PARAM NAME="Item319" VALUE="SetPrintMagnification;cDirectSCI_SetPrintMagnification_Method.htm">
+<PARAM NAME="Item320" VALUE="SetPrintWrapMode;cDirectSCI_SetPrintWrapMode_Method.htm">
+<PARAM NAME="Item321" VALUE="SetProperty;cDirectSCI_SetProperty_Method.htm">
+<PARAM NAME="Item322" VALUE="SetReadOnly;cDirectSCI_SetReadOnly_Method.htm">
+<PARAM NAME="Item323" VALUE="SetSavePoint;cDirectSCI_SetSavePoint_Method.htm">
+<PARAM NAME="Item324" VALUE="SetScrollWidth;cDirectSCI_SetScrollWidth_Method.htm">
+<PARAM NAME="Item325" VALUE="SetSearchFlags;cDirectSCI_SetSearchFlags_Method.htm">
+<PARAM NAME="Item326" VALUE="SetSelBack;cDirectSCI_SetSelBack_Method.htm">
+<PARAM NAME="Item327" VALUE="SetSelectionEnd;cDirectSCI_SetSelectionEnd_Method.htm">
+<PARAM NAME="Item328" VALUE="SetSelectionMode;cDirectSCI_SetSelectionMode_Method.htm">
+<PARAM NAME="Item329" VALUE="SetSelectionStart;cDirectSCI_SetSelectionStart_Method.htm">
+<PARAM NAME="Item330" VALUE="SetSelFore;cDirectSCI_SetSelFore_Method.htm">
+<PARAM NAME="Item331" VALUE="SetSelText;cDirectSCI_SetSelText_Method.htm">
+<PARAM NAME="Item332" VALUE="SetSel;cDirectSCI_SetSel_Method.htm">
+<PARAM NAME="Item333" VALUE="SetStatus;cDirectSCI_SetStatus_Method.htm">
+<PARAM NAME="Item334" VALUE="SetStylingEx;cDirectSCI_SetStylingEx_Method.htm">
+<PARAM NAME="Item335" VALUE="SetStyling;cDirectSCI_SetStyling_Method.htm">
+<PARAM NAME="Item336" VALUE="SetTabIndents;cDirectSCI_SetTabIndents_Method.htm">
+<PARAM NAME="Item337" VALUE="SetTabWidth;cDirectSCI_SetTabWidth_Method.htm">
+<PARAM NAME="Item338" VALUE="SetTargetEnd;cDirectSCI_SetTargetEnd_Method.htm">
+<PARAM NAME="Item339" VALUE="SetTargetStart;cDirectSCI_SetTargetStart_Method.htm">
+<PARAM NAME="Item340" VALUE="SetText;cDirectSCI_SetText_Method.htm">
+<PARAM NAME="Item341" VALUE="SetTwoPhaseDraw;cDirectSCI_SetTwoPhaseDraw_Method.htm">
+<PARAM NAME="Item342" VALUE="SetUndoCollection;cDirectSCI_SetUndoCollection_Method.htm">
+<PARAM NAME="Item343" VALUE="SetUsePalette;cDirectSCI_SetUsePalette_Method.htm">
+<PARAM NAME="Item344" VALUE="SetUseTabs;cDirectSCI_SetUseTabs_Method.htm">
+<PARAM NAME="Item345" VALUE="SetViewEOL;cDirectSCI_SetViewEOL_Method.htm">
+<PARAM NAME="Item346" VALUE="SetViewWS;cDirectSCI_SetViewWS_Method.htm">
+<PARAM NAME="Item347" VALUE="SetVisiblePolicy;cDirectSCI_SetVisiblePolicy_Method.htm">
+<PARAM NAME="Item348" VALUE="SetVScrollBar;cDirectSCI_SetVScrollBar_Method.htm">
+<PARAM NAME="Item349" VALUE="SetWhitespaceBack;cDirectSCI_SetWhitespaceBack_Method.htm">
+<PARAM NAME="Item350" VALUE="SetWhitespaceChars;cDirectSCI_SetWhitespaceChars_Method.htm">
+<PARAM NAME="Item351" VALUE="SetWhitespaceFore;cDirectSCI_SetWhitespaceFore_Method.htm">
+<PARAM NAME="Item352" VALUE="SetWordChars;cDirectSCI_SetWordChars_Method.htm">
+<PARAM NAME="Item353" VALUE="SetWrapMode;cDirectSCI_SetWrapMode_Method.htm">
+<PARAM NAME="Item354" VALUE="SetWrapStartIndent;cDirectSCI_SetWrapStartIndent_Method.htm">
+<PARAM NAME="Item355" VALUE="SetWrapVisualFlagsLocation;cDirectSCI_SetWrapVisualFlagsLocation_Method.htm">
+<PARAM NAME="Item356" VALUE="SetWrapVisualFlags;cDirectSCI_SetWrapVisualFlags_Method.htm">
+<PARAM NAME="Item357" VALUE="SetXCaretPolicy;cDirectSCI_SetXCaretPolicy_Method.htm">
+<PARAM NAME="Item358" VALUE="SetXOffset;cDirectSCI_SetXOffset_Method.htm">
+<PARAM NAME="Item359" VALUE="SetYCaretPolicy;cDirectSCI_SetYCaretPolicy_Method.htm">
+<PARAM NAME="Item360" VALUE="SetZoom;cDirectSCI_SetZoom_Method.htm">
+<PARAM NAME="Item361" VALUE="ShowLines;cDirectSCI_ShowLines_Method.htm">
+<PARAM NAME="Item362" VALUE="StartRecord;cDirectSCI_StartRecord_Method.htm">
+<PARAM NAME="Item363" VALUE="StartStyling;cDirectSCI_StartStyling_Method.htm">
+<PARAM NAME="Item364" VALUE="StopRecord;cDirectSCI_StopRecord_Method.htm">
+<PARAM NAME="Item365" VALUE="StutteredPageDownExtend;cDirectSCI_StutteredPageDownExtend_Method.htm">
+<PARAM NAME="Item366" VALUE="StutteredPageDown;cDirectSCI_StutteredPageDown_Method.htm">
+<PARAM NAME="Item367" VALUE="StutteredPageUpExtend;cDirectSCI_StutteredPageUpExtend_Method.htm">
+<PARAM NAME="Item368" VALUE="StutteredPageUp;cDirectSCI_StutteredPageUp_Method.htm">
+<PARAM NAME="Item369" VALUE="StyleClearAll;cDirectSCI_StyleClearAll_Method.htm">
+<PARAM NAME="Item370" VALUE="StyleResetDefault;cDirectSCI_StyleResetDefault_Method.htm">
+<PARAM NAME="Item371" VALUE="StyleSetBack;cDirectSCI_StyleSetBack_Method.htm">
+<PARAM NAME="Item372" VALUE="StyleSetBits;cDirectSCI_StyleSetBits_Method.htm">
+<PARAM NAME="Item373" VALUE="StyleSetBold;cDirectSCI_StyleSetBold_Method.htm">
+<PARAM NAME="Item374" VALUE="StyleSetCase;cDirectSCI_StyleSetCase_Method.htm">
+<PARAM NAME="Item375" VALUE="StyleSetChangeable;cDirectSCI_StyleSetChangeable_Method.htm">
+<PARAM NAME="Item376" VALUE="StyleSetCharacterSet;cDirectSCI_StyleSetCharacterSet_Method.htm">
+<PARAM NAME="Item377" VALUE="StyleSetEOLFilled;cDirectSCI_StyleSetEOLFilled_Method.htm">
+<PARAM NAME="Item378" VALUE="StyleSetFont;cDirectSCI_StyleSetFont_Method.htm">
+<PARAM NAME="Item379" VALUE="StyleSetFore;cDirectSCI_StyleSetFore_Method.htm">
+<PARAM NAME="Item380" VALUE="StyleSetHotSpot;cDirectSCI_StyleSetHotSpot_Method.htm">
+<PARAM NAME="Item381" VALUE="StyleSetItalic;cDirectSCI_StyleSetItalic_Method.htm">
+<PARAM NAME="Item382" VALUE="StyleSetSize;cDirectSCI_StyleSetSize_Method.htm">
+<PARAM NAME="Item383" VALUE="StyleSetUnderline;cDirectSCI_StyleSetUnderline_Method.htm">
+<PARAM NAME="Item384" VALUE="StyleSetVisible;cDirectSCI_StyleSetVisible_Method.htm">
+<PARAM NAME="Item385" VALUE="TargetAsUTF8;cDirectSCI_TargetAsUTF8_Method.htm">
+<PARAM NAME="Item386" VALUE="TargetFromSelection;cDirectSCI_TargetFromSelection_Method.htm">
+<PARAM NAME="Item387" VALUE="ToggleCaretSticky;cDirectSCI_ToggleCaretSticky_Method.htm">
+<PARAM NAME="Item388" VALUE="ToggleFold;cDirectSCI_ToggleFold_Method.htm">
+<PARAM NAME="Item389" VALUE="Undo;cDirectSCI_Undo_Method.htm">
+<PARAM NAME="Item390" VALUE="UpperCase;cDirectSCI_UpperCase_Method.htm">
+<PARAM NAME="Item391" VALUE="UsePopUp;cDirectSCI_UsePopUp_Method.htm">
+<PARAM NAME="Item392" VALUE="UserListShow;cDirectSCI_UserListShow_Method.htm">
+<PARAM NAME="Item393" VALUE="VCHomeExtend;cDirectSCI_VCHomeExtend_Method.htm">
+<PARAM NAME="Item394" VALUE="VCHomeRectExtend;cDirectSCI_VCHomeRectExtend_Method.htm">
+<PARAM NAME="Item395" VALUE="VCHomeWrapExtend;cDirectSCI_VCHomeWrapExtend_Method.htm">
+<PARAM NAME="Item396" VALUE="VCHomeWrap;cDirectSCI_VCHomeWrap_Method.htm">
+<PARAM NAME="Item397" VALUE="VCHome;cDirectSCI_VCHome_Method.htm">
+<PARAM NAME="Item398" VALUE="VisibleFromDocLine;cDirectSCI_VisibleFromDocLine_Method.htm">
+<PARAM NAME="Item399" VALUE="WordEndPosition;cDirectSCI_WordEndPosition_Method.htm">
+<PARAM NAME="Item400" VALUE="WordLeftEndExtend;cDirectSCI_WordLeftEndExtend_Method.htm">
+<PARAM NAME="Item401" VALUE="WordLeftEnd;cDirectSCI_WordLeftEnd_Method.htm">
+<PARAM NAME="Item402" VALUE="WordLeftExtend;cDirectSCI_WordLeftExtend_Method.htm">
+<PARAM NAME="Item403" VALUE="WordLeft;cDirectSCI_WordLeft_Method.htm">
+<PARAM NAME="Item404" VALUE="WordPartLeftExtend;cDirectSCI_WordPartLeftExtend_Method.htm">
+<PARAM NAME="Item405" VALUE="WordPartLeft;cDirectSCI_WordPartLeft_Method.htm">
+<PARAM NAME="Item406" VALUE="WordPartRightExtend;cDirectSCI_WordPartRightExtend_Method.htm">
+<PARAM NAME="Item407" VALUE="WordPartRight;cDirectSCI_WordPartRight_Method.htm">
+<PARAM NAME="Item408" VALUE="WordRightEndExtend;cDirectSCI_WordRightEndExtend_Method.htm">
+<PARAM NAME="Item409" VALUE="WordRightEnd;cDirectSCI_WordRightEnd_Method.htm">
+<PARAM NAME="Item410" VALUE="WordRightExtend;cDirectSCI_WordRightExtend_Method.htm">
+<PARAM NAME="Item411" VALUE="WordRight;cDirectSCI_WordRight_Method.htm">
+<PARAM NAME="Item412" VALUE="WordStartPosition;cDirectSCI_WordStartPosition_Method.htm">
+<PARAM NAME="Item413" VALUE="WrapCount;cDirectSCI_WrapCount_Method.htm">
+<PARAM NAME="Item414" VALUE="ZoomIn;cDirectSCI_ZoomIn_Method.htm">
+<PARAM NAME="Item415" VALUE="ZoomOut;cDirectSCI_ZoomOut_Method.htm">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#0000ff,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:Properties">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#808080,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:Events">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#808080,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:Enums">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#808080,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:UDT's">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#808080,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp; &nbsp;
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" ID="M" VIEWASTEXT>
+<PARAM NAME="Command" value="Related Topics, MENU" > 
+<PARAM NAME="Text" VALUE="Text:Source Code">
+<PARAM NAME="Flags" VALUE="1">
+<PARAM NAME="Item1" VALUE="cDirectSCI Source Code;cDirectSCI_Code.htm">
+<PARAM NAME="Font" VALUE="Helvetica,8,,#0000ff,PLAIN">
+</OBJECT>
+&nbsp;&nbsp; &nbsp;
+<p></p>
+<p></p>
+<p></p>
+<P></P>
+<P></P>
+<p></P></td></tr></table>
+</BODY>
+</HTML>
+

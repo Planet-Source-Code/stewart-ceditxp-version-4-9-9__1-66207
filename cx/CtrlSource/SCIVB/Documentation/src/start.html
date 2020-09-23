@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Navigation</title>
+<style>
+  a:link {color: #000080}
+  a:hover {color: #C00000}
+  a:visited {color: #000080}
+</style> 
+</head>
+<body bgcolor="#FCF9DC">
+<table border="0" height="100%" width="100%" cellpadding="0" cellspacing="1" bgcolor="#000000">
+<tr><TD valign="top">
+<table border="0" bgcolor="#FFFFFF" width="100%" height="100%" cellpadding="10" cellspacing="0"><TR><TD valign="top">
+<font face="verdana" size="2">
+The SCIVB Control is not at all difficult to get going with.  In essence to get scintilla onto your form all you need to
+do is add the SCIVB.ocx to your project, and place the SCIVB control on your form.  Then you need to add this simple
+line of code to your Form's Load Event.<BR><BR>
+SciMain.InitScintilla Me.Hwnd.
+<BR><BR>
+That's it.  Run the app and you should see a scintilla window on your form. <BR><BR>
+Now a common problem that many users have when first experimenting with this control is the Scintilla Window doesn't
+show up.  This is because the SciLexer.dll is not available.  SciLexer.dll is the actual Scintilla control.  The
+SCIVB control will try to load SciLexer.dll from both the system directory and the main application directory.  If
+it is not available it will fail to create the window.  In this event an error message will be sent to the OnError event
+within SCIVB, and InitScintilla will return false.  
+<BR><BR>
+As a general rule the best place to store the SciLexer.dll file is within the windows system directory. Example being<ul>
+<li>C:\Windows\System32 on WindowsXP
+<li>C:\WINNT\System32 on Windows 2000
+<li>ETC
+</ul>
+
+</td></tr>
+</table>
+</td></tr></table>
+</body>
+</html>

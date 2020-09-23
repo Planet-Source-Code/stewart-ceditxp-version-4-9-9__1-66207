@@ -1,0 +1,18 @@
+cEditMX is cEditVB rewritten using the 
+Scintilla ActiveX Control
+
+Credit:
+  Stewart          - Original Author
+  Neil Hodgson     - Scintilla Author
+  JM Rodriguez     - Author of ScintillaVB
+  Steve McMahon    - VBAccelerator.com
+  Paul Caton       - ASM Subclassing
+  Abdalla Mahmoud  - Coolbar Class
+  Andrea Batina    - RevMDITabs (MDI Tab Control)
+  Vinchenzo 	   - Catch Compiler Output
+  Renier Barnard   - Plugin Source
+
+
+This code is free to use, modify and 
+release, however credit should be noted to 
+the listed authors for their work.

@@ -1,0 +1,982 @@
+<HTML>
+<HEAD><TITLE>SCIHighlighter Source Code</TITLE>
+</HEAD>
+<BODY>
+<h1><b>SCIHighlighter&nbsp;Source
+Code</b></h1>
+<font face=monospace size=2>
+<P><FONT color=Blue>Option</FONT>&nbsp;<FONT color=Blue>Explicit</FONT>&nbsp;<br>
+
+<font color=Green>'Default&nbsp;Property&nbsp;Values:</font><br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_AutoCloseBraces&nbsp;=&nbsp;0&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_AutoCloseQuotes&nbsp;=&nbsp;0&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_TabIndents&nbsp;=&nbsp;0&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_BackSpaceUnIndents&nbsp;=&nbsp;0&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_BookmarkBack&nbsp;=&nbsp;vbBlack&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_BookMarkFore&nbsp;=&nbsp;vbWhite&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_MarkerBack&nbsp;=&nbsp;vbBlack&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_MarkerFore&nbsp;=&nbsp;vbWhite&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_TabWidth&nbsp;=&nbsp;4&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_CaretForeColor&nbsp;=&nbsp;vbBlack&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_CaretWidth&nbsp;=&nbsp;1&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_EdgeColor&nbsp;=&nbsp;&HE0E0E0&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_EOLMode&nbsp;=&nbsp;0&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_HighlightBraces&nbsp;=&nbsp;0&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_ClearUndoAfterSave&nbsp;=&nbsp;1&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_EndAtLastLine&nbsp;=&nbsp;0&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_MaintainIndentation&nbsp;=&nbsp;1&nbsp;<br>
+
+<FONT color=Blue>Const</FONT>&nbsp;m_def_OverType&nbsp;=&nbsp;0&nbsp;<br>
+
+<font color=Green>'Property&nbsp;Variables:</font><br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_AutoCloseBraces&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_AutoCloseQuotes&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_TabIndents&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_BackSpaceUnIndents&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_BookmarkBack&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_BookMarkFore&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_MarkerBack&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_MarkerFore&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_TabWidth&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_CaretForeColor&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_CaretWidth&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_EdgeColor&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_EOLMode&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_HighlightBraces&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_ClearUndoAfterSave&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_EndAtLastLine&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_MaintainIndentation&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+<FONT color=Blue>Dim</FONT>&nbsp;m_OverType&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+<br>
+
+<br>
+
+<FONT color=Blue>Event</FONT>&nbsp;HighlighterSet(HighlighterName&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>)<br>
+
+<FONT color=Blue>Event</FONT>&nbsp;AddHighlighter(HighlighterName&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>,&nbsp;Filter&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>)<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;UserControl_Initialize()<br>
+
+&nbsp;&nbsp;InitLexerInterface&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;UserControl_Resize()<br>
+
+&nbsp;&nbsp;UserControl.Width&nbsp;=&nbsp;32&nbsp;*&nbsp;Screen.TwipsPerPixelX&nbsp;<br>
+
+&nbsp;&nbsp;UserControl.Height&nbsp;=&nbsp;32&nbsp;*&nbsp;Screen.TwipsPerPixelY&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;SetHighlighter(Scintilla&nbsp;<FONT color=Blue>As</FONT>&nbsp;SCIVB,&nbsp;HighlighterName&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>)<br>
+
+&nbsp;&nbsp;SetHighlighters&nbsp;Scintilla,&nbsp;HighlighterName,&nbsp;Scintilla.MarginBack,&nbsp;Scintilla.MarginFore&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;LoadHighlighters(Path&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>Resume</FONT>&nbsp;<FONT color=Blue>Next</FONT>&nbsp;<font color=Green>'&nbsp;Just&nbsp;in&nbsp;case&nbsp;there&nbsp;were&nbsp;no&nbsp;highlighters&nbsp;loaded</font><br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;i&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;LoadDirectory&nbsp;Path&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>For</FONT>&nbsp;i&nbsp;=&nbsp;0&nbsp;<FONT color=Blue>To</FONT>&nbsp;UBound(Highlighters)&nbsp;-&nbsp;1&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;RaiseEvent&nbsp;AddHighlighter(Highlighters(i).strName,&nbsp;Highlighters(i).strFilter)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Next</FONT>&nbsp;i&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;DoOptions(HighlightersPath&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>)&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<font color=Green>'Dim&nbsp;fOptions&nbsp;As&nbsp;New&nbsp;frmOptions</font><br>
+
+&nbsp;&nbsp;Load&nbsp;frmOptions&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>With</FONT>&nbsp;frmOptions&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<font color=Green>'&nbsp;Set&nbsp;the&nbsp;values&nbsp;to&nbsp;the&nbsp;options&nbsp;dialog&nbsp;:)</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.chkTabIndents.Value&nbsp;=&nbsp;-(CLng(TabIndents))<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.chkAutoCloseQuotes.Value&nbsp;=&nbsp;-(CLng(AutoCloseQuotes))<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.chkAutoCloseBraces.Value&nbsp;=&nbsp;-(CLng(AutoCloseBraces))<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.chkBackSpaceUnIndents.Value&nbsp;=&nbsp;-(CLng(BackSpaceUnIndents))<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.clBookBack.SelectedColor&nbsp;=&nbsp;BookmarkBack&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.clBookFore.SelectedColor&nbsp;=&nbsp;BookMarkFore&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.clMarkerBack.SelectedColor&nbsp;=&nbsp;MarkerBack&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.clMarkerFore.SelectedColor&nbsp;=&nbsp;MarkerFore&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.txtTabWidth.Text&nbsp;=&nbsp;TabWidth&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.clrCaretFore.SelectedColor&nbsp;=&nbsp;CaretForeColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.txtCaretWidth.Text&nbsp;=&nbsp;CaretWidth&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.clrEdgeColor.SelectedColor&nbsp;=&nbsp;EdgeColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.cmbEOLMode.ListIndex&nbsp;=&nbsp;EOLMode&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.chkHighlight.Value&nbsp;=&nbsp;-(CLng(HighlightBraces))<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.chkClearUndoAfterSave.Value&nbsp;=&nbsp;-(CLng(ClearUndoAfterSave))<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.chkEndLastLine.Value&nbsp;=&nbsp;-(CLng(EndAtLastLine))<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.chkMaintainIndentation.Value&nbsp;=&nbsp;-(CLng(MaintainIndentation))<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.chkOverType.Value&nbsp;=&nbsp;-(CLng(OverType))<br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>With</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;DoOptions&nbsp;=&nbsp;DoSyntaxOptions(HighlightersPath,&nbsp;Me)<br>
+
+&nbsp;&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>If</FONT>&nbsp;DoOptions&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<FONT color=Blue>Then</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>With</FONT>&nbsp;frmOptions&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=Green>'&nbsp;Set&nbsp;the&nbsp;values&nbsp;from&nbsp;the&nbsp;options&nbsp;dialog&nbsp;to&nbsp;the&nbsp;control</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TabIndents&nbsp;=&nbsp;.chkTabIndents.Value&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutoCloseQuotes&nbsp;=&nbsp;.chkAutoCloseQuotes.Value&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutoCloseBraces&nbsp;=&nbsp;.chkAutoCloseBraces.Value&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BackSpaceUnIndents&nbsp;=&nbsp;.chkBackSpaceUnIndents.Value&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BookmarkBack&nbsp;=&nbsp;.clBookBack.SelectedColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BookMarkFore&nbsp;=&nbsp;.clBookFore.SelectedColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MarkerBack&nbsp;=&nbsp;.clMarkerBack.SelectedColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MarkerFore&nbsp;=&nbsp;.clMarkerFore.SelectedColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TabWidth&nbsp;=&nbsp;.txtTabWidth.Text&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CaretForeColor&nbsp;=&nbsp;.clrCaretFore.SelectedColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CaretWidth&nbsp;=&nbsp;.txtCaretWidth.Text&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EdgeColor&nbsp;=&nbsp;.clrEdgeColor.SelectedColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EOLMode&nbsp;=&nbsp;.cmbEOLMode.ListIndex&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HighlightBraces&nbsp;=&nbsp;.chkHighlight.Value&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ClearUndoAfterSave&nbsp;=&nbsp;.chkClearUndoAfterSave.Value&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EndAtLastLine&nbsp;=&nbsp;.chkEndLastLine.Value&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MaintainIndentation&nbsp;=&nbsp;.chkMaintainIndentation.Value&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OverType&nbsp;=&nbsp;.chkOverType.Value&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>With</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>If</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;Unload&nbsp;frmOptions&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=0,0,0,0</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;AutoCloseBraces()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;AutoCloseBraces&nbsp;=&nbsp;m_AutoCloseBraces&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;AutoCloseBraces(<FONT color=Blue>ByVal</FONT>&nbsp;New_AutoCloseBraces&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_AutoCloseBraces&nbsp;=&nbsp;New_AutoCloseBraces&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"AutoCloseBraces"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=0,0,0,0</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;AutoCloseQuotes()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;AutoCloseQuotes&nbsp;=&nbsp;m_AutoCloseQuotes&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;AutoCloseQuotes(<FONT color=Blue>ByVal</FONT>&nbsp;New_AutoCloseQuotes&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_AutoCloseQuotes&nbsp;=&nbsp;New_AutoCloseQuotes&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"AutoCloseQuotes"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=0,0,0,0</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;TabIndents()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;TabIndents&nbsp;=&nbsp;m_TabIndents&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;TabIndents(<FONT color=Blue>ByVal</FONT>&nbsp;New_TabIndents&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_TabIndents&nbsp;=&nbsp;New_TabIndents&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"TabIndents"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=0,0,0,0</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;BackSpaceUnIndents()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;BackSpaceUnIndents&nbsp;=&nbsp;m_BackSpaceUnIndents&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;BackSpaceUnIndents(<FONT color=Blue>ByVal</FONT>&nbsp;New_BackSpaceUnIndents&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_BackSpaceUnIndents&nbsp;=&nbsp;New_BackSpaceUnIndents&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"BackSpaceUnIndents"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=10,0,0,vbblack</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;BookmarkBack()&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;BookmarkBack&nbsp;=&nbsp;m_BookmarkBack&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;BookmarkBack(<FONT color=Blue>ByVal</FONT>&nbsp;New_BookmarkBack&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_BookmarkBack&nbsp;=&nbsp;New_BookmarkBack&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"BookmarkBack"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=10,0,0,vbwhite</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;BookMarkFore()&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;BookMarkFore&nbsp;=&nbsp;m_BookMarkFore&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;BookMarkFore(<FONT color=Blue>ByVal</FONT>&nbsp;New_BookMarkFore&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_BookMarkFore&nbsp;=&nbsp;New_BookMarkFore&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"BookMarkFore"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=10,0,0,vbblack</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;MarkerBack()&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;MarkerBack&nbsp;=&nbsp;m_MarkerBack&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;MarkerBack(<FONT color=Blue>ByVal</FONT>&nbsp;New_MarkerBack&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_MarkerBack&nbsp;=&nbsp;New_MarkerBack&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"MarkerBack"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=10,0,0,vbwhite</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;MarkerFore()&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;MarkerFore&nbsp;=&nbsp;m_MarkerFore&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;MarkerFore(<FONT color=Blue>ByVal</FONT>&nbsp;New_MarkerFore&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_MarkerFore&nbsp;=&nbsp;New_MarkerFore&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"MarkerFore"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=8,0,0,4</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;TabWidth()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;TabWidth&nbsp;=&nbsp;m_TabWidth&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;TabWidth(<FONT color=Blue>ByVal</FONT>&nbsp;New_TabWidth&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_TabWidth&nbsp;=&nbsp;New_TabWidth&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"TabWidth"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=10,0,0,vbblack</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;CaretForeColor()&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;CaretForeColor&nbsp;=&nbsp;m_CaretForeColor&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;CaretForeColor(<FONT color=Blue>ByVal</FONT>&nbsp;New_CaretForeColor&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_CaretForeColor&nbsp;=&nbsp;New_CaretForeColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"CaretForeColor"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=8,0,0,1</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;CaretWidth()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;CaretWidth&nbsp;=&nbsp;m_CaretWidth&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;CaretWidth(<FONT color=Blue>ByVal</FONT>&nbsp;New_CaretWidth&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Long</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_CaretWidth&nbsp;=&nbsp;New_CaretWidth&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"CaretWidth"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=10,0,0,0</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;EdgeColor()&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;EdgeColor&nbsp;=&nbsp;m_EdgeColor&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;EdgeColor(<FONT color=Blue>ByVal</FONT>&nbsp;New_EdgeColor&nbsp;<FONT color=Blue>As</FONT>&nbsp;OLE_COLOR)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_EdgeColor&nbsp;=&nbsp;New_EdgeColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"EdgeColor"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=8,0,0,0</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;EOLMode()&nbsp;<FONT color=Blue>As</FONT>&nbsp;EOLStyle&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;EOLMode&nbsp;=&nbsp;m_EOLMode&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;EOLMode(<FONT color=Blue>ByVal</FONT>&nbsp;New_EOLMode&nbsp;<FONT color=Blue>As</FONT>&nbsp;EOLStyle)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_EOLMode&nbsp;=&nbsp;New_EOLMode&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"EOLMode"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=0,0,0,1</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;HighlightBraces()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;HighlightBraces&nbsp;=&nbsp;m_HighlightBraces&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;HighlightBraces(<FONT color=Blue>ByVal</FONT>&nbsp;New_HighlightBraces&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_HighlightBraces&nbsp;=&nbsp;New_HighlightBraces&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"HighlightBraces"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=0,0,0,1</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;ClearUndoAfterSave()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;ClearUndoAfterSave&nbsp;=&nbsp;m_ClearUndoAfterSave&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;ClearUndoAfterSave(<FONT color=Blue>ByVal</FONT>&nbsp;New_ClearUndoAfterSave&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_ClearUndoAfterSave&nbsp;=&nbsp;New_ClearUndoAfterSave&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"ClearUndoAfterSave"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=0,0,0,0</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;EndAtLastLine()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;EndAtLastLine&nbsp;=&nbsp;m_EndAtLastLine&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;EndAtLastLine(<FONT color=Blue>ByVal</FONT>&nbsp;New_EndAtLastLine&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_EndAtLastLine&nbsp;=&nbsp;New_EndAtLastLine&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"EndAtLastLine"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=0,0,0,1</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;MaintainIndentation()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;MaintainIndentation&nbsp;=&nbsp;m_MaintainIndentation&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;MaintainIndentation(<FONT color=Blue>ByVal</FONT>&nbsp;New_MaintainIndentation&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_MaintainIndentation&nbsp;=&nbsp;New_MaintainIndentation&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"MaintainIndentation"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'WARNING!&nbsp;DO&nbsp;NOT&nbsp;REMOVE&nbsp;OR&nbsp;MODIFY&nbsp;THE&nbsp;FOLLOWING&nbsp;COMMENTED&nbsp;LINES!</font><br>
+
+<font color=Green>'MemberInfo=0,0,0,0</font><br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Get</FONT>&nbsp;OverType()&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;OverType&nbsp;=&nbsp;m_OverType&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<FONT color=Blue>Let</FONT>&nbsp;OverType(<FONT color=Blue>ByVal</FONT>&nbsp;New_OverType&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_OverType&nbsp;=&nbsp;New_OverType&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;PropertyChanged&nbsp;"OverType"&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Property</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'Initialize&nbsp;Properties&nbsp;for&nbsp;User&nbsp;Control</font><br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;UserControl_InitProperties()<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_AutoCloseBraces&nbsp;=&nbsp;m_def_AutoCloseBraces&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_AutoCloseQuotes&nbsp;=&nbsp;m_def_AutoCloseQuotes&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_TabIndents&nbsp;=&nbsp;m_def_TabIndents&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_BackSpaceUnIndents&nbsp;=&nbsp;m_def_BackSpaceUnIndents&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_BookmarkBack&nbsp;=&nbsp;m_def_BookmarkBack&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_BookMarkFore&nbsp;=&nbsp;m_def_BookMarkFore&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_MarkerBack&nbsp;=&nbsp;m_def_MarkerBack&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_MarkerFore&nbsp;=&nbsp;m_def_MarkerFore&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_TabWidth&nbsp;=&nbsp;m_def_TabWidth&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_CaretForeColor&nbsp;=&nbsp;m_def_CaretForeColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_CaretWidth&nbsp;=&nbsp;m_def_CaretWidth&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_EdgeColor&nbsp;=&nbsp;m_def_EdgeColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_EOLMode&nbsp;=&nbsp;m_def_EOLMode&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_HighlightBraces&nbsp;=&nbsp;m_def_HighlightBraces&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_ClearUndoAfterSave&nbsp;=&nbsp;m_def_ClearUndoAfterSave&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_EndAtLastLine&nbsp;=&nbsp;m_def_EndAtLastLine&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_MaintainIndentation&nbsp;=&nbsp;m_def_MaintainIndentation&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_OverType&nbsp;=&nbsp;m_def_OverType&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'Load&nbsp;property&nbsp;values&nbsp;from&nbsp;storage</font><br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;UserControl_ReadProperties(PropBag&nbsp;<FONT color=Blue>As</FONT>&nbsp;PropertyBag)<br>
+
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_AutoCloseBraces&nbsp;=&nbsp;PropBag.ReadProperty("AutoCloseBraces",&nbsp;m_def_AutoCloseBraces)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_AutoCloseQuotes&nbsp;=&nbsp;PropBag.ReadProperty("AutoCloseQuotes",&nbsp;m_def_AutoCloseQuotes)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_TabIndents&nbsp;=&nbsp;PropBag.ReadProperty("TabIndents",&nbsp;m_def_TabIndents)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_BackSpaceUnIndents&nbsp;=&nbsp;PropBag.ReadProperty("BackSpaceUnIndents",&nbsp;m_def_BackSpaceUnIndents)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_BookmarkBack&nbsp;=&nbsp;PropBag.ReadProperty("BookmarkBack",&nbsp;m_def_BookmarkBack)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_BookMarkFore&nbsp;=&nbsp;PropBag.ReadProperty("BookMarkFore",&nbsp;m_def_BookMarkFore)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_MarkerBack&nbsp;=&nbsp;PropBag.ReadProperty("MarkerBack",&nbsp;m_def_MarkerBack)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_MarkerFore&nbsp;=&nbsp;PropBag.ReadProperty("MarkerFore",&nbsp;m_def_MarkerFore)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_TabWidth&nbsp;=&nbsp;PropBag.ReadProperty("TabWidth",&nbsp;m_def_TabWidth)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_CaretForeColor&nbsp;=&nbsp;PropBag.ReadProperty("CaretForeColor",&nbsp;m_def_CaretForeColor)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_CaretWidth&nbsp;=&nbsp;PropBag.ReadProperty("CaretWidth",&nbsp;m_def_CaretWidth)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_EdgeColor&nbsp;=&nbsp;PropBag.ReadProperty("EdgeColor",&nbsp;m_def_EdgeColor)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_EOLMode&nbsp;=&nbsp;PropBag.ReadProperty("EOLMode",&nbsp;m_def_EOLMode)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_HighlightBraces&nbsp;=&nbsp;PropBag.ReadProperty("HighlightBraces",&nbsp;m_def_HighlightBraces)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_ClearUndoAfterSave&nbsp;=&nbsp;PropBag.ReadProperty("ClearUndoAfterSave",&nbsp;m_def_ClearUndoAfterSave)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_EndAtLastLine&nbsp;=&nbsp;PropBag.ReadProperty("EndAtLastLine",&nbsp;m_def_EndAtLastLine)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_MaintainIndentation&nbsp;=&nbsp;PropBag.ReadProperty("MaintainIndentation",&nbsp;m_def_MaintainIndentation)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_OverType&nbsp;=&nbsp;PropBag.ReadProperty("OverType",&nbsp;m_def_OverType)<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<font color=Green>'Write&nbsp;property&nbsp;values&nbsp;to&nbsp;storage</font><br>
+
+<FONT color=Blue>Private</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;UserControl_WriteProperties(PropBag&nbsp;<FONT color=Blue>As</FONT>&nbsp;PropertyBag)<br>
+
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("AutoCloseBraces",&nbsp;m_AutoCloseBraces,&nbsp;m_def_AutoCloseBraces)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("AutoCloseQuotes",&nbsp;m_AutoCloseQuotes,&nbsp;m_def_AutoCloseQuotes)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("TabIndents",&nbsp;m_TabIndents,&nbsp;m_def_TabIndents)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("BackSpaceUnIndents",&nbsp;m_BackSpaceUnIndents,&nbsp;m_def_BackSpaceUnIndents)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("BookmarkBack",&nbsp;m_BookmarkBack,&nbsp;m_def_BookmarkBack)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("BookMarkFore",&nbsp;m_BookMarkFore,&nbsp;m_def_BookMarkFore)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("MarkerBack",&nbsp;m_MarkerBack,&nbsp;m_def_MarkerBack)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("MarkerFore",&nbsp;m_MarkerFore,&nbsp;m_def_MarkerFore)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("TabWidth",&nbsp;m_TabWidth,&nbsp;m_def_TabWidth)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("CaretForeColor",&nbsp;m_CaretForeColor,&nbsp;m_def_CaretForeColor)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("CaretWidth",&nbsp;m_CaretWidth,&nbsp;m_def_CaretWidth)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("EdgeColor",&nbsp;m_EdgeColor,&nbsp;m_def_EdgeColor)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("EOLMode",&nbsp;m_EOLMode,&nbsp;m_def_EOLMode)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("HighlightBraces",&nbsp;m_HighlightBraces,&nbsp;m_def_HighlightBraces)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("ClearUndoAfterSave",&nbsp;m_ClearUndoAfterSave,&nbsp;m_def_ClearUndoAfterSave)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("EndAtLastLine",&nbsp;m_EndAtLastLine,&nbsp;m_def_EndAtLastLine)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("MaintainIndentation",&nbsp;m_MaintainIndentation,&nbsp;m_def_MaintainIndentation)<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;PropBag.WriteProperty("OverType",&nbsp;m_OverType,&nbsp;m_def_OverType)<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Sub</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;SetStylesAndOptions(Scintilla&nbsp;<FONT color=Blue>As</FONT>&nbsp;SCIVB,&nbsp;HighlighterName&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>)&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>GoTo</FONT>&nbsp;errHandler&nbsp;<br>
+
+&nbsp;&nbsp;SetStylesAndOptions&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;SetHighlighter&nbsp;Scintilla,&nbsp;HighlighterName&nbsp;<br>
+
+&nbsp;&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>With</FONT>&nbsp;Scintilla&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<font color=Green>'&nbsp;Set&nbsp;the&nbsp;options&nbsp;and&nbsp;styles&nbsp;to&nbsp;the&nbsp;editor</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.TabIndents&nbsp;=&nbsp;Me.TabIndents&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.AutoCloseQuotes&nbsp;=&nbsp;Me.AutoCloseQuotes&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.AutoCloseBraces&nbsp;=&nbsp;Me.AutoCloseBraces&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.BackSpaceUnIndents&nbsp;=&nbsp;Me.BackSpaceUnIndents&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.BookmarkBack&nbsp;=&nbsp;Me.BookmarkBack&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.BookMarkFore&nbsp;=&nbsp;Me.BookMarkFore&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.MarkerBack&nbsp;=&nbsp;Me.MarkerBack&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.MarkerFore&nbsp;=&nbsp;Me.MarkerFore&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.IndentWidth&nbsp;=&nbsp;Me.TabWidth&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.CaretForeColor&nbsp;=&nbsp;Me.CaretForeColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.CaretWidth&nbsp;=&nbsp;Me.CaretWidth&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.EdgeColor&nbsp;=&nbsp;Me.EdgeColor&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.EOL&nbsp;=&nbsp;Me.EOLMode&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.HighlightBraces&nbsp;=&nbsp;Me.HighlightBraces&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.ClearUndoAfterSave&nbsp;=&nbsp;Me.ClearUndoAfterSave&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.EndAtLastLine&nbsp;=&nbsp;Me.EndAtLastLine&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.MaintainIndentation&nbsp;=&nbsp;Me.MaintainIndentation&nbsp;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;.OverType&nbsp;=&nbsp;Me.OverType&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>With</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<font color=Green>'Scintilla.SetOptions</font><br>
+
+&nbsp;&nbsp;<FONT color=Blue>Exit</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;<br>
+
+errHandler:&nbsp;<br>
+
+&nbsp;&nbsp;SetStylesAndOptions&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;WriteSettings(RegPath&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>)&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>GoTo</FONT>&nbsp;errHandler&nbsp;<br>
+
+&nbsp;&nbsp;WriteSettings&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<font color=Green>'&nbsp;Writes&nbsp;the&nbsp;options&nbsp;to&nbsp;the&nbsp;registry</font><br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"TabIndents",&nbsp;Me.TabIndents&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"AutoCloseQuotes",&nbsp;Me.AutoCloseQuotes&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"AutoCloseBraces",&nbsp;Me.AutoCloseBraces&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"BackSpaceUnIndents",&nbsp;Me.BackSpaceUnIndents&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"BookMarkBack",&nbsp;Me.BookmarkBack&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"BookMarkFore",&nbsp;Me.BookMarkFore&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"MarkerBack",&nbsp;Me.MarkerBack&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"MarkerFore",&nbsp;Me.MarkerFore&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"IndentWidth",&nbsp;Me.TabWidth&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"CaretForeColor",&nbsp;Me.CaretForeColor&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"CaretWidth",&nbsp;Me.CaretWidth&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"EdgeColor",&nbsp;Me.EdgeColor&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"EOL",&nbsp;Me.EOLMode&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"HighlightBraces",&nbsp;Me.HighlightBraces&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"ClearUndoAfterSave",&nbsp;Me.ClearUndoAfterSave&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"EndAtLastLine",&nbsp;Me.EndAtLastLine&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"MaintainIndentation",&nbsp;Me.MaintainIndentation&nbsp;<br>
+
+&nbsp;&nbsp;SaveString&nbsp;HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"OverType",&nbsp;Me.OverType&nbsp;<br>
+
+<br>
+
+&nbsp;&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Exit</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;<br>
+
+errHandler:&nbsp;<br>
+
+&nbsp;&nbsp;WriteSettings&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;ReadSettings(RegPath&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>)&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>GoTo</FONT>&nbsp;errHandler&nbsp;<br>
+
+&nbsp;&nbsp;ReadSettings&nbsp;=&nbsp;<FONT color=Blue>True</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;TabIndents&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"TabIndents",&nbsp;"1")<br>
+
+&nbsp;&nbsp;AutoCloseQuotes&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"AutoCloseQuotes",&nbsp;"0")<br>
+
+&nbsp;&nbsp;AutoCloseBraces&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"AutoCloseBraces",&nbsp;"0")<br>
+
+&nbsp;&nbsp;BackSpaceUnIndents&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"BackSpaceUnIndents",&nbsp;"0")<br>
+
+&nbsp;&nbsp;BookmarkBack&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"BookMarkBack",&nbsp;vbBlack)<br>
+
+&nbsp;&nbsp;BookMarkFore&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"BookMarkFore",&nbsp;vbWhite)<br>
+
+&nbsp;&nbsp;MarkerBack&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"MarkerBack",&nbsp;vbBlack)<br>
+
+&nbsp;&nbsp;MarkerFore&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"MarkerFore",&nbsp;vbWhite)<br>
+
+&nbsp;&nbsp;TabWidth&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"IndentWidth",&nbsp;"4")<br>
+
+&nbsp;&nbsp;CaretForeColor&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"CaretForeColor",&nbsp;vbBlack)<br>
+
+&nbsp;&nbsp;CaretWidth&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"CaretWidth",&nbsp;"1")<br>
+
+&nbsp;&nbsp;EdgeColor&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"EdgeColor",&nbsp;&HE0E0E0)<br>
+
+&nbsp;&nbsp;EOLMode&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"EOL",&nbsp;0)<br>
+
+&nbsp;&nbsp;HighlightBraces&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"HighlightBraces",&nbsp;"1")<br>
+
+&nbsp;&nbsp;ClearUndoAfterSave&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"ClearUndoAfterSave",&nbsp;"1")<br>
+
+&nbsp;&nbsp;EndAtLastLine&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"EndAtLastLine",&nbsp;"1")<br>
+
+&nbsp;&nbsp;MaintainIndentation&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"MaintainIndentation",&nbsp;"1")<br>
+
+&nbsp;&nbsp;OverType&nbsp;=&nbsp;ReadSetting(HKEY_CLASSES_ROOT,&nbsp;RegPath,&nbsp;"OverType",&nbsp;"0")<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Exit</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;<br>
+
+errHandler:&nbsp;<br>
+
+&nbsp;&nbsp;ReadSettings&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;ExportToHTML(FilePath&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>,&nbsp;Scintilla&nbsp;<FONT color=Blue>As</FONT>&nbsp;SCIVB)&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>On</FONT>&nbsp;<FONT color=Blue>Error</FONT>&nbsp;<FONT color=Blue>GoTo</FONT>&nbsp;errHandler&nbsp;<br>
+
+&nbsp;&nbsp;ExportToHTML&nbsp;=&nbsp;ExportToHTML2(FilePath,&nbsp;Scintilla)<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Exit</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;<br>
+
+errHandler:&nbsp;<br>
+
+&nbsp;&nbsp;ExportToHTML&nbsp;=&nbsp;<FONT color=Blue>False</FONT>&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;<br>
+
+<br>
+
+<FONT color=Blue>Public</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;SetHighlighterExt(Scintilla&nbsp;<FONT color=Blue>As</FONT>&nbsp;SCIVB,&nbsp;strFile&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>)&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>Boolean</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;<FONT color=Blue>Dim</FONT>&nbsp;str&nbsp;<FONT color=Blue>As</FONT>&nbsp;<FONT color=Blue>String</FONT>&nbsp;<br>
+
+&nbsp;&nbsp;str&nbsp;=&nbsp;SetHighlighterBasedOnExtension(GetExtension(strFile))<br>
+
+&nbsp;&nbsp;SetStylesAndOptions&nbsp;Scintilla,&nbsp;str&nbsp;<br>
+
+&nbsp;&nbsp;RaiseEvent&nbsp;HighlighterSet(str)<br>
+
+&nbsp;&nbsp;Scintilla.CurHigh&nbsp;=&nbsp;str&nbsp;<br>
+
+<FONT color=Blue>End</FONT>&nbsp;<FONT color=Blue>Function</FONT>&nbsp;<br>
+
+</P>
+</font>
+</BODY>
+</HTML>
+

@@ -1,0 +1,16 @@
+[History]
+B0=RevMDITabs/RevMDITabsCtl
+B1=RevMDITabs/RevMDITabsCtl/pDrawTabsXPStyle
+B2=RevMDITabs/RevMDITabsCtl/pDrawTabs2000Style
+B3=RevMDITabs/RevMDITabsCtl/pDrawTabs2003Style
+B4=RevMDITabs/RevMDITabsCtl/UserControl_ReadProperties
+B5=RevMDITabs/RevMDITabsCtl/UserControl_WriteProperties
+B6=RevMDITabs/RevMDITabsCtl/DrawIcons
+B7=RevMDITabs/RevMDITabsCtl/DrawFocusRect
+B8=RevMDITabs/RevMDITabsCtl/pGetSmallIcon
+B9=RevMDITabs/RevMDITabsCtl/pSetColors
+B10=RevMDITabs/RevMDITabsCtl/pDrawControl
+B11=RevMDITabs/RevMDITabsCtl/GetSmallIcon
+B12=RevMDITabs/CMemoryDC
+B13=RevMDITabs/CMemoryDC/IconToPicture
+B14=RevMDITabs/RevMDITabsCtl/ISubclassingSink_After

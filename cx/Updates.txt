@@ -1,0 +1,16 @@
+Updates
+-------------------------------------
+
+As of right now the editor is fairly near the the same
+level of the original VB cEdit though it totally lacks
+docking support and as it stands I don't see it being
+added because of it's flaws.
+
+Minor drawing bug fix taken care of today.  Redrew the
+tabs involving the side nav bar and the MDI Tabs
+
+FTP has been taken care of.
+
+Added a new event to the Highlighters control to readily
+know when a highlighter change has occurred.
+
